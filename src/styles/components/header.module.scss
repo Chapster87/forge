@@ -1,0 +1,52 @@
+@import '../variables';
+
+.header {
+	background-color: theme-color("primary");
+	background-image: url("../../images/low-contrast-linen.png");
+	border-top: 0.125rem solid theme-color("secondary");
+	position: fixed;
+	bottom: 0;
+	z-index: 99;
+	width: 100%;
+
+	@include media-breakpoint-up(md) {
+		position: static;
+		border-bottom: 0.125rem solid theme-color("secondary");
+		border-top: 0;
+
+		body.page-home & {
+			background-image: none;
+			background-color: transparent;
+			border: 0;
+		}
+	}
+}
+
+.logo {
+	max-height: 100%;
+}
+
+.headerTitle {
+	font-family: $lemonmilk-regular;
+	font-size: 1.375em;
+	margin: 0 0 0 0.875rem;
+	letter-spacing: 0.063rem;
+	color: $black;
+	display: none;
+
+	@include media-breakpoint-up(sm) {
+		display: inline-block;
+	}
+
+	@include media-breakpoint-up(md) {
+		font-size: 1.938rem;
+	}
+
+	.titleRugbyClub {
+		display: none;
+		@include media-breakpoint-up(md) {
+			display: inline-block
+		}
+	}
+
+}
