@@ -1,0 +1,72 @@
+
+// Color system
+//
+@import 'components/colors.scss';
+
+// Reassign color vars to semantic color scheme
+$theme-colors: (
+  primary: $forge-gold,
+  secondary: $forge-red,
+  success: $green,
+  info: $cyan,
+  warning: $yellow,
+  danger: $red,
+  light: $gray-100,
+  dark: $gray-800,
+) !default;
+
+// Options
+//
+// Quickly modify global styling by enabling or disabling optional features.
+$enable-rounded: true !default;
+$enable-shadows: true !default;
+$enable-gradients: false !default;
+$enable-transitions: false !default;
+$enable-hover-media-query: false !default;
+$enable-grid-classes: true !default;
+$enable-print-styles: true !default;
+
+// Grid breakpoints
+//
+// Define the minimum dimensions at which your layout will change,
+// adapting to different screen sizes, for use in media queries.
+
+$grid-breakpoints: (
+  xs: 0,
+  sm: 320px,
+  md: 768px,
+  lg: 1200px,
+  xl: 1440px
+) !default;
+
+// Grid containers
+//
+// Define the maximum width of `.container` for different screen sizes.
+
+$container-max-widths: (
+//   sm: 540px,
+//   md: 640px,
+//   lg: 710px,
+  xl: 1470px
+) !default;
+
+// Body
+//
+// Settings for the `<body>` element.
+
+$body-bg: $gray-900 !default;
+$body-color: $black !default;
+$inverse-bg: $white !default;
+$inverse-color: $forge-gold !default;
+
+// Links
+//
+// Style anchor elements.
+$link-decoration: none !default;
+$link-hover-decoration: underline !default;
+
+// Fonts
+//
+@import 'components/fonts.scss';
+
+@import 'node_modules/bootstrap/scss/bootstrap.scss';
