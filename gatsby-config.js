@@ -59,6 +59,10 @@ module.exports = {
 				excludedRoutes: [
 					"**/products/*"
 				],
+				searchAndReplaceContentUrls: {
+					sourceUrl: "https://pghrugby.com",
+					replacementUrl: "",
+				},
 			}
 		},
 		{
