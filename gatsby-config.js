@@ -25,13 +25,13 @@ module.exports = {
 		{
 			resolve: `gatsby-plugin-manifest`,
 			options: {
-				name: `gatsby-starter-default`,
-				short_name: `starter`,
-				start_url: `/`,
-				background_color: `#663399`,
-				theme_color: `#663399`,
+				name: `Pittsburgh Forge Rugby Club`,
+				short_name: `The Forge`,
+				start_url: `?utm_source=a2hs`,
+				background_color: `#222`,
+				theme_color: `#FFB81C`,
 				display: `minimal-ui`,
-				icon: `src/images/gatsby-icon.png` // This path is relative to the root of the site.
+				icon: `src/images/pghforgerugby.png` // This path is relative to the root of the site.
 			}
 		},
 		`gatsby-plugin-sass`,

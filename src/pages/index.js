@@ -3,6 +3,7 @@ import { Link, graphql } from "gatsby"
 import { FaRegClock } from "react-icons/fa"
 
 import Layout from "../layouts/layout"
+import SEO from '../components/SEO'
 
 class Home extends Component {
   render() {
@@ -10,7 +11,8 @@ class Home extends Component {
 
     return (
       <Layout>
-        <div>
+        <React.Fragment>
+		  <SEO title="Homepage" keywords={[`gatsby`, `application`, `react`]} />
 		  <Link to="/products">Go to the products</Link>
           <h1>Pages</h1>
           {data.allWordpressPage.edges.map(({ node }) => (
@@ -29,7 +31,7 @@ class Home extends Component {
               </span>
             </div>
           ))}
-        </div>
+        </React.Fragment>
         <hr />
         <h1>Posts</h1>
         {data.allWordpressPost.edges.map(({ node }) => (
