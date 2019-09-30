@@ -28,6 +28,10 @@ export default class MainMenu extends React.Component {
 		});
 	}
 
+	// componentDidMount() {
+    //     // $(document).foundation();
+	// }
+
 	render() {
 	  return (
 		<StaticQuery
@@ -60,26 +64,33 @@ export default class MainMenu extends React.Component {
 					<Nav className="ml-auto" navbar>
 					{MenuItems.map(item => (
 						(item.child_items ?
-							<UncontrolledDropdown nav inNavbar>
-								<DropdownToggle nav caret
-									className={stylesNav.menuLink}
+							<React.Fragment>
+								<NavLink
+									href={`${item.url}`}
 									key={item.wordpress_id}
 								>
-								{item.title}
-								</DropdownToggle>
-								<DropdownMenu right>
-									{item.child_items && item.child_items.map((subitem) =>
-									<DropdownItem key={item.wordpress_id}>
-											<NavLink
-												href={`${subitem.url}`}
-												key={item.wordpress_id}
-											>
-												{subitem.title}
-											</NavLink>
-									</DropdownItem>
-									)}
-								</DropdownMenu>
-							</UncontrolledDropdown>
+									{item.title}
+								</NavLink>
+								<UncontrolledDropdown nav inNavbar>
+									<DropdownToggle nav caret
+										className={stylesNav.menuLink}
+										key={item.wordpress_id}
+									>
+									</DropdownToggle>
+									<DropdownMenu right>
+										{item.child_items && item.child_items.map((subitem) =>
+										<DropdownItem key={item.wordpress_id}>
+												<NavLink
+													href={`${subitem.url}`}
+													key={item.wordpress_id}
+												>
+													{subitem.title}
+												</NavLink>
+										</DropdownItem>
+										)}
+									</DropdownMenu>
+								</UncontrolledDropdown>
+							</React.Fragment>
 						:
 							(<NavItem>
 								<NavLink
