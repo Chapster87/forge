@@ -53,9 +53,12 @@ module.exports = {
 					"**/categories",
 					"**/tags",
 					"**/taxonomies",
-					"**/users",
 					"**/menus"
-				]
+				],
+				// Blacklisted routes using glob patterns
+				excludedRoutes: [
+					"**/products/*"
+				],
 			}
 		},
 		{
@@ -94,8 +97,7 @@ module.exports = {
 			options: {
 				objects: ['Product', 'Sku'],
 				secretKey: process.env.STRIPE_SECRET_KEY,
-				downloadFiles: true,
-				auth: false
+				downloadFiles: true
 			}
 		}
 	],
