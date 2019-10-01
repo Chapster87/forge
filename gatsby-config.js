@@ -59,17 +59,17 @@ module.exports = {
 				excludedRoutes: [
 					"**/products/*"
 				],
-				searchAndReplaceContentUrls: {
-					sourceUrl: "https://pghrugby.com",
-					replacementUrl: "",
-				},
+				// searchAndReplaceContentUrls: {
+				// 	sourceUrl: "https://pghrugby.com",
+				// 	replacementUrl: "",
+				// },
 			}
 		},
 		{
 			resolve: 'gatsby-plugin-web-font-loader',
 			options: {
 				google: {
-					families: ['Lato', 'Oswald', 'Roboto']
+					families: ['Lato:400,400i,700,700i,900,900i', 'Oswald:400,500,600,700', 'Roboto:400,400i,500,500i,700,700i,900,900i']
 				}
 			}
 		},

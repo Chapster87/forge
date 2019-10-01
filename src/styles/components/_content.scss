@@ -1,0 +1,182 @@
+/* entry content */
+.wp-content {
+	padding: 1.5em 0 0;
+
+	p {
+		margin: 0 0 1em;
+	}
+
+
+	ul,
+	ol,
+	table,
+	dl {}
+
+	ul,
+	ol {
+		list-style-type: disc;
+		padding-left: 2rem;
+
+		li {}
+
+	}
+
+	ul {
+
+		li {}
+
+	}
+
+	ol {
+		list-style: decimal;
+		margin: initial;
+		padding: 0 0 0 2.5rem;
+
+		li {
+			padding-left: 0.75rem;
+			margin-bottom: 1rem;
+		}
+	}
+
+	table {
+		width: 100%;
+		border: 1px solid $gray-200;
+		margin-bottom: 1.5em;
+
+		caption {
+			margin: 0 0 7px;
+			font-size: 0.75em;
+			color: $gray-500;
+			text-transform: uppercase;
+			letter-spacing: 1px;
+		}
+	}
+
+	tr {
+		border-bottom: 1px solid $gray-200;
+
+		&:nth-child(even) {
+			background-color: $gray-100;
+		}
+	}
+
+	td {
+		padding: 7px;
+		border-right: 1px solid $gray-200;
+
+		&:last-child {
+			border-right: 0;
+		}
+	}
+
+	th {
+		background-color: $gray-100;
+		border-bottom: 1px solid $gray-200;
+		border-right: 1px solid $gray-200;
+
+		&:last-child {
+			border-right: 0;
+		}
+	}
+
+	blockquote {
+		margin: 0 0 1.5em 0.75em;
+		padding: 0 0 0 0.75em;
+		border-left: 3px solid $blue;
+		font-style: italic;
+		color: $gray-500;
+
+		&:before {}
+
+	}
+
+	dl {}
+
+	dt {}
+
+	dd {
+		margin-left: 0;
+		font-size: 0.9em;
+		color: #787878;
+		margin-bottom: 1.5em;
+	}
+
+	img {
+		margin: 0 0 1.5em 0;
+		max-width: 100%;
+		height: auto;
+	}
+
+	/*
+	image alignment on a screen this size may be
+	a bit difficult. It's set to start aligning
+	and floating images at the next breakpoint,
+	but it's up to you. Feel free to change it up.
+	*/
+	.alignleft,
+	img.alignleft {
+		@include media-breakpoint-up(sm) {
+			margin-right: 1.5em;
+			display: inline;
+			float: left;
+		}
+	}
+
+	.alignright,
+	img.alignright {
+		@include media-breakpoint-up(sm) {
+			margin-left: 1.5em;
+			display: inline;
+			float: right;
+		}
+	}
+
+	.aligncenter,
+	img.aligncenter {
+		@include media-breakpoint-up(sm) {
+			margin-right: auto;
+			margin-left: auto;
+			display: block;
+			clear: both;
+		}
+	}
+
+	.size-auto,
+	.size-full,
+	.size-large,
+	.size-medium,
+	.size-thumbnail {
+		max-width: 100%;
+		height: auto;
+	}
+
+	pre {
+		background: $black;
+		color: $gray-100;
+		font-size: 0.9em;
+		padding: 1.5em;
+		margin: 0 0 1.5em;
+		border-radius: 3px;
+	}
+
+}
+
+.wp-caption {
+	max-width: 100%;
+	background: $gray-200;
+	padding: 5px;
+
+	/* images inside wp-caption */
+	img {
+		max-width: 100%;
+		margin-bottom: 0;
+		width: 100%;
+	}
+
+	p.wp-caption-text {
+		font-size: 0.85em;
+		margin: 4px 0 7px;
+		text-align: center;
+	}
+
+}
