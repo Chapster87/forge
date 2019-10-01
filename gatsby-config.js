@@ -58,11 +58,7 @@ module.exports = {
 				// Blacklisted routes using glob patterns
 				excludedRoutes: [
 					"**/products/*"
-				],
-				// searchAndReplaceContentUrls: {
-				// 	sourceUrl: "https://pghrugby.com",
-				// 	replacementUrl: "",
-				// },
+				]
 			}
 		},
 		{
