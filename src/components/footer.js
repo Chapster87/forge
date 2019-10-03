@@ -14,7 +14,7 @@ export default class Footer extends React.Component {
 		return (
 			<React.Fragment>
 				<SponsorBar />
-				<footer class="footer" role="contentinfo" itemtype="http://schema.org/WPFooter">
+				<footer className={stylesFooter.footer} role="contentinfo" itemtype="http://schema.org/WPFooter">
 					<div id="inner-footer" class="wrap cf">
 						<div class="footer__row row-1">
 							<div class="footer__row--left">
