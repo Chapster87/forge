@@ -9,6 +9,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { StaticQuery, graphql } from 'gatsby'
 import Header from "../components/header"
+import Footer from "../components/footer"
 import ProductsProvider from '../components/productsProvider'
 import CartProvider from '../components/cartProvider'
 import "../styles/global.scss"
@@ -25,19 +26,15 @@ const Layout = ({ children }) => (
 		}
 	  `}
 	  render={data => (
-		<>
+		<React.Fragment>
 		  <ProductsProvider>
 			<CartProvider>
 				<Header siteTitle={data.site.siteMetadata.title} />
 				<main>{children}</main>
-				<footer>
-				© {new Date().getFullYear()}, Built with
-				{` `}
-				<a href="https://www.gatsbyjs.org">Gatsby</a>
-				</footer>
+				<Footer/>
 			</CartProvider>
 		  </ProductsProvider>
-		</>
+		</React.Fragment>
 	  )}
 	/>
   )

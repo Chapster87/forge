@@ -1,0 +1,26 @@
+@import '../variables';
+
+.sponsorBar {
+	display: none;
+	background-color: $black;
+	clear: both;
+
+	@include media-breakpoint-up(lg) {
+		display: block;
+	}
+
+	img {
+		margin-bottom: 0;
+	}
+}
+
+.sponsor {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.sponsorLogo {
+	max-width: 12.5rem;
+	max-height: 12.5rem;
+}

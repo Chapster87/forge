@@ -13,7 +13,6 @@ import stylesHeader from "../styles/components/header.module.scss"
 
 import logo from '../images/pghforgerugby.png'
 
-
 export default class Header extends React.Component {
 	render() {
 	  return (
