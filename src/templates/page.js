@@ -21,17 +21,20 @@ class PageTemplate extends Component {
 				<article className="page container">
 					<Row className="content">
 						<div className={`${'primary'} ${'col-md-9'}`}>
-
-							<h1 className="mt-3">
-								{(currentPage.acf.alt_page_title ? currentPage.acf.alt_page_title : currentPage.title)}
-							</h1>
-							<hr/>
-							<div
-								dangerouslySetInnerHTML={{
-									__html: currentPage.content
-								}}
-								className="wp-content"
+							<div className="wp-content">
+								<header class="wp-head">
+									<h1>
+										{(currentPage.acf.alt_page_title ? currentPage.acf.alt_page_title : currentPage.title)}
+									</h1>
+									<hr className="mb-0" />
+								</header>
+								<div
+									dangerouslySetInnerHTML={{
+										__html: currentPage.content
+									}}
+									className="wp-entry"
 							/>
+							</div>
 						</div>
 
 						<div className={`${'secondary'} ${'col-md-3'}`}>

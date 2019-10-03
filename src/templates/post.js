@@ -20,30 +20,32 @@ class PostTemplate extends Component {
 			<article class="post container">
 				<Row className="content">
 					<div className={`${'primary'} ${'col-md-9'}`}>
-						<header>
-							<h1 className="mt-3">
-								{post.title}
-							</h1>
+						<div className="wp-content">
+							<header class="wp-head">
+								<h1>
+									{post.title}
+								</h1>
 
-							<p class="lead">
-								by
-								<a href="">Start Bootstrap</a>
-							</p>
+								<p class="lead">
+									by
+									<a href="">Start Bootstrap</a>
+								</p>
 
-							<hr/>
+								<hr/>
 
-							<PostIcons node={post} className={'published-date'}/>
+								<PostIcons node={post} className={'published-date'}/>
 
-							<hr/>
+								<hr className="mb-0" />
 
-						</header>
+							</header>
 
-						<div
-							dangerouslySetInnerHTML={{
-								__html: post.content
-							}}
-							className="wp-content"
-						/>
+							<div
+								dangerouslySetInnerHTML={{
+									__html: post.content
+								}}
+								className="wp-entry"
+							/>
+						</div>
 					</div>
 
 					<div className={`${'secondary'} ${'col-md-3'}`}>
