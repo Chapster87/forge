@@ -5,7 +5,7 @@
 	background-color: $black;
 	clear: both;
 
-	@include media-breakpoint-up(lg) {
+	@include media-breakpoint-up(md) {
 		display: block;
 	}
 

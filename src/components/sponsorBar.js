@@ -1,7 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
-import Img from 'gatsby-image'
 import {
 	Container, Row, Col
 } from 'reactstrap'
@@ -18,14 +17,20 @@ const SponsorBar = () => {
 			<Container>
 				<Row>
 					<Col className={stylesSponsorBar.sponsor} xs="12" md="4">
-						<a href="/dugan-associates-supports-pittsburghs-rugby-club" className="dugan">
+						<Link
+							to="/dugan-associates-supports-pittsburghs-rugby-club"
+							className="dugan"
+						>
 							<img src={duganLogo} alt="Dugan &amp; Associates" class={stylesSponsorBar.sponsorLogo}/>
-						</a>
+						</Link>
 					</Col>
 					<Col className={stylesSponsorBar.sponsor} xs="12" md="4">
-						<a href="/pittsburgh-forge-partners-with-essmc" className="essmc">
+						<Link
+							to="/pittsburgh-forge-partners-with-essmc"
+							className="essmc"
+						>
 							<img src={essmcLogo} alt="Eastern Suburbs Sports Medicine" class={stylesSponsorBar.sponsorLogo}/>
-						</a>
+						</Link>
 					</Col>
 					<Col className={stylesSponsorBar.sponsor} xs="12" md="4">
 						<a href="http://ruggerspub.com/" className="ruggers" target="_blank">
