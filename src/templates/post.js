@@ -22,9 +22,11 @@ class PostTemplate extends Component {
 					<div className={`${'primary'} ${'col-md-9'}`}>
 						<div className="wp-content">
 							<header class="wp-head">
-								<h1>
-									{post.title}
-								</h1>
+								<h1
+									dangerouslySetInnerHTML={{
+										__html: post.title
+									}}
+								/>
 
 								<p class="lead">
 									by
