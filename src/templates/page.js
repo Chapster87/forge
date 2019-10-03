@@ -23,9 +23,12 @@ class PageTemplate extends Component {
 						<div className={`${'primary'} ${'col-md-9'}`}>
 							<div className="wp-content">
 								<header class="wp-head">
-									<h1>
-										{(currentPage.acf.alt_page_title ? currentPage.acf.alt_page_title : currentPage.title)}
-									</h1>
+									<h1
+										dangerouslySetInnerHTML={{
+											__html: (currentPage.acf.alt_page_title ? currentPage.acf.alt_page_title : currentPage.title)
+										}}
+									/>
+
 									<hr className="mb-0" />
 								</header>
 								<div
