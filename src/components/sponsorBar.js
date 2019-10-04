@@ -15,8 +15,8 @@ const SponsorBar = () => {
 	return (
 		<div className={stylesSponsorBar.sponsorBar}>
 			<Container>
-				<Row>
-					<Col className={`${stylesSponsorBar.sponsor} ${'jusifty-content-center'}`} xs="12" md="3">
+				<Row className="justify-content-center">
+					<Col className={stylesSponsorBar.sponsor} xs="12" md="3">
 						<Link
 							to="/dugan-associates-supports-pittsburghs-rugby-club"
 							className="dugan"
