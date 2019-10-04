@@ -29,7 +29,7 @@ const Layout = ({ children }) => (
 		<React.Fragment>
 		  <ProductsProvider>
 			<CartProvider>
-				<Header siteTitle={data.site.siteMetadata.title} />
+				<Header />
 				<main>{children}</main>
 				<Footer/>
 			</CartProvider>
