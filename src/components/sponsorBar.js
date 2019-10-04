@@ -16,7 +16,7 @@ const SponsorBar = () => {
 		<div className={stylesSponsorBar.sponsorBar}>
 			<Container>
 				<Row>
-					<Col className={stylesSponsorBar.sponsor} xs="12" md="4">
+					<Col className={`${stylesSponsorBar.sponsor} ${'jusifty-content-center'}`} xs="12" md="3">
 						<Link
 							to="/dugan-associates-supports-pittsburghs-rugby-club"
 							className="dugan"
@@ -24,7 +24,7 @@ const SponsorBar = () => {
 							<img src={duganLogo} alt="Dugan &amp; Associates" class={stylesSponsorBar.sponsorLogo}/>
 						</Link>
 					</Col>
-					<Col className={stylesSponsorBar.sponsor} xs="12" md="4">
+					<Col className={stylesSponsorBar.sponsor} xs="12" md="3">
 						<Link
 							to="/pittsburgh-forge-partners-with-essmc"
 							className="essmc"
@@ -32,7 +32,7 @@ const SponsorBar = () => {
 							<img src={essmcLogo} alt="Eastern Suburbs Sports Medicine" class={stylesSponsorBar.sponsorLogo}/>
 						</Link>
 					</Col>
-					<Col className={stylesSponsorBar.sponsor} xs="12" md="4">
+					<Col className={stylesSponsorBar.sponsor} xs="12" md="3">
 						<a href="http://ruggerspub.com/" className="ruggers" target="_blank">
 							<img src={ruggersLogo} alt="Ruggers Pub" class={stylesSponsorBar.sponsorLogo}/>
 						</a>
