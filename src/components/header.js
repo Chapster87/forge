@@ -18,13 +18,12 @@ export default class Header extends React.Component {
 		<header
 			className={stylesHeader.header}
 			role="banner"
-			itemscope
-			itemtype="http://schema.org/WPHeader"
+			itemType="http://schema.org/WPHeader"
 		>
 			<Navbar light expand="md">
 				<NavbarBrand href="/" className={stylesHeader.logoLink}>
 					<img src={logo} className={stylesHeader.logo} alt="Pittsburgh Forge Rugby Club"/>
-					<span className={stylesHeader.headerTitle} itemscope itemtype="http://schema.org/Organization">
+					<span className={stylesHeader.headerTitle} itemType="http://schema.org/Organization">
 						Pittsburgh Forge <span className={stylesHeader.titleRugbyClub}>Rugby Club</span>
 					</span>
 				</NavbarBrand>

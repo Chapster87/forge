@@ -4,73 +4,92 @@ import React, { Fragment } from "react"
 import {
 	Container, Row, Col
 } from 'reactstrap'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 import SponsorBar from "../components/sponsorBar"
 
 import stylesFooter from '../styles/components/footer.module.scss'
+
+import forgeBlast from '../images/forge_blast_drop.png'
 
 export default class Footer extends React.Component {
 	render() {
 		return (
 			<React.Fragment>
 				<SponsorBar />
-				<footer className={stylesFooter.footer} role="contentinfo" itemtype="http://schema.org/WPFooter">
-					<div id="inner-footer" class="wrap cf">
-						<div class="footer__row row-1">
-							<div class="footer__row--left">
-								<div class="join-forge">
-									<a href="/contact" class="join-forge__link">
-										<img src="https://pghrugby.com/wp-content/themes/forge/library/images/forge_blast_drop.png" class="blast-logo" alt="Pittsburgh Forge Rugby Club"/>
-										<h3 class="join-forge__headline">Ready to get into the action?!<br/> Click here to conact us!</h3>
-									</a>
+				<footer className={stylesFooter.footer} role="contentinfo" itemType="http://schema.org/WPFooter">
+					<Container>
+						<Row>
+							<Col xs="12" md="3">
+								<div className="text-center">
+									<Link to="/contact" className={stylesFooter.joinForgeLink}>
+										<img src={forgeBlast} class={stylesFooter.blastLogo} alt="Pittsburgh Forge Rugby Club"/>
+										<h3 className={stylesFooter.joinForgeHeadline}>Ready to get into the action?!<br/> Click here to conact us!</h3>
+									</Link>
 								</div>
-							</div>
-							<div class="footer__row--right">
-								<div class="social">
-									<h3 class="social__header">Find us on Social Media:</h3>
-									<ul class="social__links">
-										<li><a href="https://www.facebook.com/pittsburghrugby" target="_blank"><span class="visually-hidden">Facebook</span><i class="fab fa-facebook"></i></a></li>
-										<li><a href="https://www.instagram.com/pittsburghrugby/" target="_blank"><span class="visually-hidden">Instagram</span><i class="fab fa-instagram"></i></a></li>
-										<li><a href="https://twitter.com/pittsburghrugby" target="_blank"><span class="visually-hidden">Twitter</span><i class="fab fa-twitter"></i></a></li>
+							</Col>
+							<Col xs="12" md="9">
+								<Row className={stylesFooter.social}>
+									<h3 className={stylesFooter.socialHeader}>Find us on Social Media:</h3>
+									<ul className={stylesFooter.socialLinks}>
+										<li>
+											<a href="https://www.facebook.com/pittsburghrugby" target="_blank">
+												<span className="sr-only">Facebook</span>
+												<FontAwesomeIcon icon={["fab", "facebook-square"]}/>
+											</a>
+										</li>
+										<li>
+											<a href="https://www.instagram.com/pittsburghrugby/" target="_blank">
+												<span className="sr-only">Instagram</span>
+												<FontAwesomeIcon icon={["fab", "instagram"]}/>
+											</a>
+										</li>
+										<li>
+											<a href="https://twitter.com/pittsburghrugby" target="_blank">
+												<span className="sr-only">Twitter</span>
+												<FontAwesomeIcon icon={["fab", "twitter-square"]}/>
+											</a>
+										</li>
 									</ul>
-								</div>
-								<nav role="navigation">
-									<div class="footer-links cf">
-										<ul id="menu-footer" class="nav footer-nav cf">
-											<li id="menu-item-1457" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-1457"><a href="https://pghrugby.com/about">About Us</a>
-												<ul class="sub-menu">
-													<li id="menu-item-1458" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1458"><a href="https://pghrugby.com/club-bylaws">Club Bylaws</a></li>
-													<li id="menu-item-1459" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1459"><a href="https://pghrugby.com/membership">Club Membership</a></li>
-													<li id="menu-item-1460" class="menu-item menu-item-type-post_type menu-item-object-product menu-item-1460"><a href="https://pghrugby.com/product/dues">Pay Dues</a></li>
-													<li id="menu-item-1461" class="menu-item menu-item-type-post_type menu-item-object-product menu-item-1461"><a href="https://pghrugby.com/product/club-donation">Club Donation</a></li>
-													<li id="menu-item-1462" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1462"><a href="http://www.steamrollerrugby.com/pittsburgh-forge-rugby/">Merchandise</a></li>
-												</ul>
-											</li>
-											<li id="menu-item-1463" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-1463"><a href="https://pghrugby.com/womens-club">Women’s Club</a>
-												<ul class="sub-menu">
-													<li id="menu-item-1464" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1464"><a href="https://pghrugby.com/womens-roster">Women’s Roster</a></li>
-													<li id="menu-item-1465" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1465"><a href="https://pghrugby.com/womens-schedule">Women’s Schedule</a></li>
-													<li id="menu-item-1466" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1466"><a href="https://pghrugby.com/womens-standings">Women’s Standings</a></li>
-													<li id="menu-item-487" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-487"><a href="https://pghrugby.com/contact">Contact Us</a></li>
-												</ul>
-											</li>
-											<li id="menu-item-1468" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-1468"><a href="https://pghrugby.com/mens-club">Men’s Club</a>
-												<ul class="sub-menu">
-													<li id="menu-item-1469" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1469"><a href="https://pghrugby.com/mens-roster">Men’s Roster</a></li>
-													<li id="menu-item-1470" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1470"><a href="https://pghrugby.com/mens-schedule">Men’s Schedule</a></li>
-													<li id="menu-item-1471" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1471"><a href="https://pghrugby.com/mens-standings">Men’s Standings</a></li>
-													<li id="menu-item-1467" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1467"><a href="https://pghrugby.com/contact">Contact Us</a></li>
-												</ul>
-											</li>
+								</Row>
+								<nav role="navigation" className={`${stylesFooter.footerNav} ${'row'}`}>
+									<Col className="text-center">
+										<a href="https://pghrugby.com/about" className={stylesFooter.footerNavHeader}>About Us</a>
+										<ul className={stylesFooter.footerSubMenu}>
+											<li><a href="https://pghrugby.com/club-bylaws">Club Bylaws</a></li>
+											<li><a href="https://pghrugby.com/membership">Club Membership</a></li>
+											<li><a href="https://pghrugby.com/product/dues">Pay Dues</a></li>
+											<li><a href="https://pghrugby.com/product/club-donation">Club Donation</a></li>
+											<li><a href="http://www.steamrollerrugby.com/pittsburgh-forge-rugby/">Merchandise</a></li>
 										</ul>
-									</div>
+									</Col>
+									<Col className="text-center">
+										<a href="https://pghrugby.com/womens-club" className={stylesFooter.footerNavHeader}>Women’s Club</a>
+										<ul className={stylesFooter.footerSubMenu}>
+											<li><a href="https://pghrugby.com/womens-roster">Women’s Roster</a></li>
+											<li><a href="https://pghrugby.com/womens-schedule">Women’s Schedule</a></li>
+											<li><a href="https://pghrugby.com/womens-standings">Women’s Standings</a></li>
+											<li><a href="https://pghrugby.com/contact">Contact Us</a></li>
+										</ul>
+									</Col>
+									<Col className="text-center">
+										<a href="https://pghrugby.com/mens-club" className={stylesFooter.footerNavHeader}>Men’s Club</a>
+										<ul className={stylesFooter.footerSubMenu}>
+											<li><a href="https://pghrugby.com/mens-roster">Men’s Roster</a></li>
+											<li><a href="https://pghrugby.com/mens-schedule">Men’s Schedule</a></li>
+											<li><a href="https://pghrugby.com/mens-standings">Men’s Standings</a></li>
+											<li><a href="https://pghrugby.com/contact">Contact Us</a></li>
+										</ul>
+									</Col>
 								</nav>
-							</div>
-						</div>
-						<div class="footer__row row-2">
-							<p class="source-org copyright">©{new Date().getFullYear()} Pittsburgh Forge Rugby Club.</p>
-						</div>
-					</div>
+							</Col>
+						</Row>
+					</Container>
+					<Container fluid>
+						<Row className="justify-content-center">
+							<p className="copyright">©{new Date().getFullYear()} Pittsburgh Forge Rugby Club.</p>
+						</Row>
+					</Container>
 				</footer>
 			</React.Fragment>
 		);
