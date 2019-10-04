@@ -11,156 +11,59 @@
 		margin-bottom: 0;
 	}
 
-	.footer__row {
+}
+
+.footerNav {
+	width: 100%;
+	display: none;
+
+	@include media-breakpoint-up(md) {
+		padding-top: 1rem;
 		display: block;
-		width: 100%;
-		clear: both;
-
-		&.row-1 {
-			display: flex;
-			flex-wrap: wrap;
-
-			.footer__row--left {
-				width: 100%;
-
-				@include media-breakpoint-up(md) {
-					width: 25%;
-				}
-			}
-
-			.footer__row--right {
-				width: 100%;
-
-				@include media-breakpoint-up(md) {
-					width: 72%;
-					margin-left: 3%;
-				}
-			}
-		}
-
-		&.row-2 {
-			text-align: center;
-		}
 	}
 
-	.join-forge {
-		text-align: center;
+	li {
+		width: 100%;
+		float: none;
+		margin-bottom: 0.75rem;
 
-		.blast-logo {
-			max-width: 17.1875rem;
-
-			@include media-breakpoint-up(md) {
-				max-width: 100%;
-			}
-		}
-
-		.join-forge__headline {
-			text-decoration: none;
+		a {
 			color: $black;
-			font-family: $lemonmilk-regular;
-			font-size: 1rem;
-			transition: color ease 0.3s;
-		}
-
-		.join-forge__link {
-			text-decoration: none;
-
+			padding: 0.75rem 0 0.5rem;
 			&:hover {
-				.join-forge__headline {
-					color: $forge-red;
-				}
+				text-decoration: none;
 			}
 		}
 	}
+}
 
-	.social {
-		float: left;
-		width: 100%;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		border-bottom: 0.1875rem solid $black;
-		padding: 0 0 1rem;
+.footerNavHeader {
+	display: block;
+	color: $black;
+	font-family: $lemonmilk-regular;
+	font-size: 1.375rem;
+	transition: color ease 0.3s;
+	padding: 0.75rem 0 0.5rem;
 
-		.social__header {
-			margin: 0;
-			text-transform: uppercase;
-			color: $forge-red;
-		}
-
-		.social__links {
-			float: none;
-			display: flex;
-			margin: 0 0 0 2rem;
-
-			li {
-				margin: 0 0.625rem;
-
-				a {
-					color: $forge-red;
-
-					&:hover {
-						color: $black;
-					}
-				}
-			}
-
-			.fab {
-				font-size: 2rem;
-			}
-		}
+	&:hover {
+		color: $forge-red;
+		text-decoration: none;
 	}
+}
 
-	nav {
-		width: 100%;
-		float: left;
-		padding-left: 2%;
-		display: none;
+.footerSubMenu {
+	display: block;
+	position: static;
+	border: 0;
+	background: transparent;
+	padding: 0;
+	list-style: none;
 
-		@include media-breakpoint-up(md) {
-			display: block;
-		}
-	}
-
-	.nav {
-		display: flex;
-		justify-content: space-between;
-		width: 100%;
-
-		li {
+	li {
+		a {
+			border-bottom: 0;
 			width: 100%;
-			float: none;
-			margin-bottom: 0.75rem;
-
-			>a {
-				color: $black;
-				padding: 0.75rem 0 0.5rem;
-			}
-
-			ul.sub-menu {
-				display: block;
-				position: static;
-				border: 0;
-				background: transparent;
-
-				li {
-					a {
-						border-bottom: 0;
-						width: 100%;
-						padding: 0;
-						transition: color ease 0.3s;
-
-						&:hover {
-							color: $forge-red;
-						}
-					}
-				}
-			}
-		}
-
-		>li>a {
-			font-family: $lemonmilk-regular;
-			font-size: 1.375rem;
+			padding: 0;
 			transition: color ease 0.3s;
 
 			&:hover {
@@ -168,9 +71,70 @@
 			}
 		}
 	}
+}
 
-	.copyright {
-		display: inline-block;
+.social {
+	width: 100%;
+	align-items: center;
+	justify-content: center;
+	border-bottom: 0.1875rem solid $black;
+	padding: 0 0 1rem;
+
+	.socialHeader {
+		margin: 0;
+		text-transform: uppercase;
+		color: $forge-red;
+		font-size: 1.125em;
 	}
 
+	.socialLinks {
+		float: none;
+		display: flex;
+		margin: 0 0 0 2rem;
+		padding: 0;
+		list-style-type: none;
+
+		li {
+			margin: 0 0.625rem;
+
+			a {
+				color: $forge-red;
+
+				&:hover {
+					color: $black;
+				}
+			}
+		}
+
+		svg {
+			height: 2rem;
+			width: 2rem;
+		}
+	}
+}
+
+.joinForgeHeadline {
+	text-decoration: none;
+	color: $black;
+	font-family: $lemonmilk-regular;
+	font-size: 1rem;
+	transition: color ease 0.3s;
+}
+
+.joinForgeLink {
+	&:hover {
+		text-decoration: none;
+
+		.joinForgeHeadline {
+			color: $forge-red;
+		}
+	}
+}
+
+.blastLogo {
+	max-width: 17.1875rem;
+
+	@include media-breakpoint-up(md) {
+		max-width: 100%;
+	}
 }

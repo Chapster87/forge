@@ -5,6 +5,11 @@
   "version": "0.1.0",
   "author": "Andrew Chapman",
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.25",
+    "@fortawesome/free-brands-svg-icons": "^5.11.2",
+    "@fortawesome/free-regular-svg-icons": "^5.11.2",
+    "@fortawesome/free-solid-svg-icons": "^5.11.2",
+    "@fortawesome/react-fontawesome": "^0.1.5",
     "bootstrap": "^4.3.1",
     "dotenv-webpack": "^1.7.0",
     "gatsby": "^2.15.1",
