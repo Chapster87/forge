@@ -1,4 +1,4 @@
-import { Link } from "gatsby"
+import { Link, graphql, StaticQuery } from "gatsby"
 import PropTypes from "prop-types"
 import React, { Fragment } from "react"
 import {
@@ -52,35 +52,84 @@ export default class Footer extends React.Component {
 										</li>
 									</ul>
 								</Row>
-								<nav role="navigation" className={`${stylesFooter.footerNav} ${'row'}`}>
-									<Col className="text-center">
-										<a href="https://pghrugby.com/about" className={stylesFooter.footerNavHeader}>About Us</a>
-										<ul className={stylesFooter.footerSubMenu}>
-											<li><a href="https://pghrugby.com/club-bylaws">Club Bylaws</a></li>
-											<li><a href="https://pghrugby.com/membership">Club Membership</a></li>
-											<li><a href="https://pghrugby.com/product/dues">Pay Dues</a></li>
-											<li><a href="https://pghrugby.com/product/club-donation">Club Donation</a></li>
-											<li><a href="http://www.steamrollerrugby.com/pittsburgh-forge-rugby/">Merchandise</a></li>
-										</ul>
-									</Col>
-									<Col className="text-center">
-										<a href="https://pghrugby.com/womens-club" className={stylesFooter.footerNavHeader}>Women’s Club</a>
-										<ul className={stylesFooter.footerSubMenu}>
-											<li><a href="https://pghrugby.com/womens-roster">Women’s Roster</a></li>
-											<li><a href="https://pghrugby.com/womens-schedule">Women’s Schedule</a></li>
-											<li><a href="https://pghrugby.com/womens-standings">Women’s Standings</a></li>
-											<li><a href="https://pghrugby.com/contact">Contact Us</a></li>
-										</ul>
-									</Col>
-									<Col className="text-center">
-										<a href="https://pghrugby.com/mens-club" className={stylesFooter.footerNavHeader}>Men’s Club</a>
-										<ul className={stylesFooter.footerSubMenu}>
-											<li><a href="https://pghrugby.com/mens-roster">Men’s Roster</a></li>
-											<li><a href="https://pghrugby.com/mens-schedule">Men’s Schedule</a></li>
-											<li><a href="https://pghrugby.com/mens-standings">Men’s Standings</a></li>
-											<li><a href="https://pghrugby.com/contact">Contact Us</a></li>
-										</ul>
-									</Col>
+								<nav role="navigation" className={`${stylesFooter.footerNav} ${'row justify-content-center'}`}>
+									<StaticQuery
+										query={graphql`
+											{
+												allWordpressMenusMenusItems(filter: {slug: {eq: "footer"}}) {
+													edges {
+														node {
+															slug
+															name
+															count
+															items {
+																menu_order
+																title
+																url
+																child_items {
+																	wordpress_id
+																	title
+																	url
+																}
+															}
+														}
+													}
+												}
+											}
+										`}
+										render={data => {
+											const footerMenuItems = data.allWordpressMenusMenusItems.edges[0].node.items;
+											return (
+												<React.Fragment>
+													{footerMenuItems.map(item => {
+														let fullURL = item.url,
+															slug = fullURL.split("pghrugby.com")[1];
+
+														return (
+															(item.child_items ?
+																<Col className="col-3">
+																	<Link
+																		to={`${slug}`}
+																		key={item.wordpress_id}
+																		className={stylesFooter.footerNavHeader}
+																	>
+																		{item.title}
+																	</Link>
+																	<ul className={stylesFooter.footerSubMenu}>
+																		{item.child_items && item.child_items.map((subitem) => {
+																			let fullSubURL = subitem.url,
+																			subSlug = fullSubURL.split("pghrugby.com")[1];
+
+																			return (
+																				<li>
+																					<Link
+																						to={`${subSlug}`}
+																						key={item.wordpress_id}
+																					>
+																						{subitem.title}
+																					</Link>
+																				</li>
+																			)
+																		})}
+																	</ul>
+																</Col>
+															:
+																<Col className="text-center">
+																	<Link
+																		to={`${slug}`}
+																		key={item.wordpress_id}
+																		className={stylesFooter.footerNavHeader}
+																	>
+																		{item.title}
+																	</Link>
+																</Col>
+															)
+														)
+													})}
+												</React.Fragment>
+											);
+										}}
+									/>
 								</nav>
 							</Col>
 						</Row>
