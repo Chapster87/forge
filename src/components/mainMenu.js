@@ -37,9 +37,10 @@ export default class MainMenu extends React.Component {
 		<StaticQuery
 		  query={graphql`
 			{
-				allWordpressMenusMenusItems {
+				allWordpressMenusMenusItems(filter: {slug: {eq: "main"}}) {
 					edges {
 						node {
+							slug
 							name
 							count
 							items {
@@ -58,7 +59,7 @@ export default class MainMenu extends React.Component {
 			}
 		  `}
 		  render={data => {
-			const MenuItems = data.allWordpressMenusMenusItems.edges[1].node.items;
+			const MenuItems = data.allWordpressMenusMenusItems.edges[0].node.items;
 			return (
 				<Collapse isOpen={this.state.isOpen} navbar>
 					<Nav className="ml-auto" navbar>
