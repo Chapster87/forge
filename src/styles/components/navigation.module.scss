@@ -1,17 +1,54 @@
 @import '../variables';
+@import "../utilities/functions";
 
 .mainNav {
-	height: 100%;
-	order: 1;
-	display: flex;
 	align-items: center;
-	width: 22%;
 	justify-content: center;
+	padding: 0 !important;
 
-	@include media-breakpoint-up(md) {
+	@include media-breakpoint-up(lg) {
+		background-color: theme-color("primary");
+		background-image: url("../../images/low-contrast-linen.png");
+		border-bottom: 0.125rem solid theme-color("secondary");
+		padding: 0.5rem 1rem;
+	}
+}
+
+.mainNavBranding {
+	background-color: theme-color("primary");
+	background-image: url("../../images/low-contrast-linen.png");
+	border-bottom: 0.125rem solid theme-color("secondary");
+	padding: 0.5rem 1rem;
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: space-between;
+
+	@include media-breakpoint-up(lg) {
 		width: auto;
-		display: block;
-		order: 3;
+		background-color: transparent;
+		background-image: none;
+		border: 0;
+	}
+}
+
+.navbarBrandLink {
+	height: 100%;
+	padding: 0;
+}
+
+.mobileMenuContact {
+	color: $black;
+	font-size: 1.75rem;
+	height: 3rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-decoration: none;
+
+	&:hover {
+		color: $black;
 	}
 }
 
@@ -23,7 +60,7 @@ ul.menuMain {
 	background-color: $black;
 	z-index: 1;
 
-	@include media-breakpoint-up(md) {
+	@include media-breakpoint-up(lg) {
 		display: flex;
 		justify-content: flex-end;
 		align-items: center;
@@ -43,7 +80,7 @@ ul.menuMain {
 		border-bottom: 1px solid $light-black;
 		height: 100%;
 
-		@include media-breakpoint-up(md) {
+		@include media-breakpoint-up(lg) {
 			float: none;
 			width: auto;
 			padding: 0;
@@ -58,7 +95,7 @@ ul.menuMain {
 			transition: border ease 0.5s;
 			flex-grow: 1;
 
-			@include media-breakpoint-up(md) {
+			@include media-breakpoint-up(lg) {
 				color: $black;
 				height: 100%;
 				display: flex;
@@ -71,7 +108,7 @@ ul.menuMain {
 			}
 		}
 
-		@include media-breakpoint-up(md) {
+		@include media-breakpoint-up(lg) {
 			&.current_page_item>a {
 				color: inherit;
 				border-bottom: 0.25rem solid theme-color("secondary");
@@ -88,7 +125,7 @@ ul.menuMain {
 				a {
 					padding-left: 2.5rem;
 
-					@include media-breakpoint-up(md) {
+					@include media-breakpoint-up(lg) {
 						padding: 0.75rem;
 					}
 
@@ -99,4 +136,23 @@ ul.menuMain {
 			}
 		}
 	}
+}
+
+.logo {
+	max-height: rem(56);
+	margin-bottom: 0;
+}
+
+.headerTitle {
+	font-family: $lemonmilk-regular;
+	font-size: 1.375em;
+	margin: 0 0 0 0.875rem;
+	letter-spacing: 0.063rem;
+	color: $black;
+	display: none;
+
+	@include media-breakpoint-up(md) {
+		font-size: 1.938rem;
+	}
+
 }
