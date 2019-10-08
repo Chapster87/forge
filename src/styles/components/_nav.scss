@@ -1,0 +1,112 @@
+.navbar-brand {
+	@include media-breakpoint-up(md) {
+		display: flex;
+		align-items: center;
+	}
+}
+
+.navbar-nav {
+	@include media-breakpoint-up(md) {
+		margin-right: 1rem;
+		margin-left: 1rem;
+		justify-content: space-between;
+		width: 100%;
+	}
+
+	.nav-item {
+		display: flex;
+		flex-wrap: wrap;
+		border-bottom: 1px solid $gray-800;
+
+		@include media-breakpoint-up(md) {
+			border: 0;
+		}
+
+		.pageLink {
+			flex-grow: 1;
+			@include media-breakpoint-up(md) {
+				padding-left: 0;
+			}
+		}
+
+		.dropdown-toggle {
+			background-color: $gray-800;
+			width: 2.5rem;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			font-size: 1.25rem;
+
+			@include media-breakpoint-up(md) {
+				background-color: transparent;
+			}
+
+			&:after {
+				margin-left: 0;
+			}
+		}
+
+		.dropdown-menu {
+			width: 100%;
+			border-radius: 0;
+			background-color: $gray-800;
+			margin: 0;
+			border: 0;
+
+			@include media-breakpoint-up(md) {
+				width: auto;
+			}
+		}
+	}
+
+	.dropdown-item:hover {
+		background-color: transparent;
+		color: $forge-gold;
+	}
+
+	.nav-link {
+		padding: 0.5rem 1rem;
+
+		.navbar-dark & {
+			color: $white;
+			font-weight: 700;
+			font-family: $lato;
+
+			@include media-breakpoint-up(md) {
+				color: $black;
+			}
+
+			&:hover {
+				color: $forge-gold;
+
+				@include media-breakpoint-up(md) {
+					color: $white;
+				}
+			}
+		}
+	}
+}
+
+.navbar-dark {
+	.navbar-toggler {
+		border: 1px solid #222;
+		box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.3);
+	}
+
+	.navbar-toggler-icon {
+		background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjwhRE9DVFlQRSBzdmcgIFBVQkxJQyAnLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4nICAnaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkJz48c3ZnIGhlaWdodD0iMzJweCIgaWQ9IkxheWVyXzEiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDMyIDMyOyIgdmVyc2lvbj0iMS4xIiB2aWV3Qm94PSIwIDAgMzIgMzIiIHdpZHRoPSIzMnB4IiB4bWw6c3BhY2U9InByZXNlcnZlIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIj48cGF0aCBkPSJNNCwxMGgyNGMxLjEwNCwwLDItMC44OTYsMi0ycy0wLjg5Ni0yLTItMkg0QzIuODk2LDYsMiw2Ljg5NiwyLDhTMi44OTYsMTAsNCwxMHogTTI4LDE0SDRjLTEuMTA0LDAtMiwwLjg5Ni0yLDIgIHMwLjg5NiwyLDIsMmgyNGMxLjEwNCwwLDItMC44OTYsMi0yUzI5LjEwNCwxNCwyOCwxNHogTTI4LDIySDRjLTEuMTA0LDAtMiwwLjg5Ni0yLDJzMC44OTYsMiwyLDJoMjRjMS4xMDQsMCwyLTAuODk2LDItMiAgUzI5LjEwNCwyMiwyOCwyMnoiLz48L3N2Zz4=);
+	}
+
+	.dropdown-menu {
+		.nav-link{
+			color: $white;
+
+			@include media-breakpoint-up(md) {
+				&:hover {
+					color: $forge-gold;
+				}
+			}
+		}
+	}
+
+}

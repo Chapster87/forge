@@ -87,7 +87,7 @@ export default class Footer extends React.Component {
 
 														return (
 															(item.child_items ?
-																<Col className="col-3">
+																<Col className="col-12 col-md-3">
 																	<Link
 																		to={`${slug}`}
 																		key={item.wordpress_id}
@@ -114,7 +114,7 @@ export default class Footer extends React.Component {
 																	</ul>
 																</Col>
 															:
-																<Col className="text-center">
+																<Col className="col-12 col-md-3">
 																	<Link
 																		to={`${slug}`}
 																		key={item.wordpress_id}
