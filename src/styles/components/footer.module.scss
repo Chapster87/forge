@@ -1,4 +1,5 @@
 @import '../variables';
+@import "../utilities/functions";
 
 .footer {
 	background-color: $forge-gold;
@@ -7,13 +8,19 @@
 	padding: 1rem 0 0;
 }
 
+.footerHr {
+	width: 100%;
+	border-top: rem(3) solid $black;
+}
+
 .footerNav {
 	width: 100%;
 	display: none;
+	text-align: center;
 
 	@include media-breakpoint-up(md) {
-		padding-top: 1rem;
 		display: block;
+		text-align: unset;
 	}
 
 	li {
@@ -24,6 +31,7 @@
 		a {
 			color: $black;
 			padding: 0.75rem 0 0.5rem;
+
 			&:hover {
 				text-decoration: none;
 			}
@@ -37,7 +45,7 @@
 	font-family: $lemonmilk-regular;
 	font-size: 1.375rem;
 	transition: color ease 0.3s;
-	padding: 0.75rem 0 0.5rem;
+	padding: 0 0 0.5rem;
 
 	&:hover {
 		color: $forge-red;
@@ -68,25 +76,43 @@
 }
 
 .social {
-	width: 100%;
-	align-items: center;
-	justify-content: center;
-	border-bottom: 0.1875rem solid $black;
-	padding: 0 0 1rem;
+
+	.socialWrap {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-wrap: wrap;
+	}
 
 	.socialHeader {
-		margin: 0;
+		margin: 0 0 1rem;
 		text-transform: uppercase;
 		color: $forge-red;
 		font-size: 1.125em;
+		width: 100%;
+		text-align: center;
+
+		@include media-breakpoint-up(md) {
+			margin: 0;
+			width: auto;
+			text-align: unset;
+		}
 	}
 
 	.socialLinks {
 		float: none;
 		display: flex;
-		margin: 0 0 0 2rem;
+		margin: 0;
 		padding: 0;
 		list-style-type: none;
+		width: 100%;
+		justify-content: center;
+
+		@include media-breakpoint-up(md) {
+			margin: 0 0 0 2rem;
+			width: auto;
+			justify-content: unset;
+		}
 
 		li {
 			margin: 0 0.625rem;
@@ -116,6 +142,8 @@
 }
 
 .joinForgeLink {
+	display: block;
+
 	&:hover {
 		text-decoration: none;
 
