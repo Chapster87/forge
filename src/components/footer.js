@@ -30,27 +30,30 @@ export default class Footer extends React.Component {
 							</Col>
 							<Col xs="12" md="9">
 								<Row className={stylesFooter.social}>
-									<h3 className={stylesFooter.socialHeader}>Find us on Social Media:</h3>
-									<ul className={stylesFooter.socialLinks}>
-										<li>
-											<a href="https://www.facebook.com/pittsburghrugby" target="_blank">
-												<span className="sr-only">Facebook</span>
-												<FontAwesomeIcon icon={["fab", "facebook-square"]}/>
-											</a>
-										</li>
-										<li>
-											<a href="https://www.instagram.com/pittsburghrugby/" target="_blank">
-												<span className="sr-only">Instagram</span>
-												<FontAwesomeIcon icon={["fab", "instagram"]}/>
-											</a>
-										</li>
-										<li>
-											<a href="https://twitter.com/pittsburghrugby" target="_blank">
-												<span className="sr-only">Twitter</span>
-												<FontAwesomeIcon icon={["fab", "twitter-square"]}/>
-											</a>
-										</li>
-									</ul>
+									<Col className={stylesFooter.socialWrap}>
+										<h3 className={stylesFooter.socialHeader}>Find us on Social Media:</h3>
+										<ul className={stylesFooter.socialLinks}>
+											<li>
+												<a href="https://www.facebook.com/pittsburghrugby" target="_blank">
+													<span className="sr-only">Facebook</span>
+													<FontAwesomeIcon icon={["fab", "facebook-square"]}/>
+												</a>
+											</li>
+											<li>
+												<a href="https://www.instagram.com/pittsburghrugby/" target="_blank">
+													<span className="sr-only">Instagram</span>
+													<FontAwesomeIcon icon={["fab", "instagram"]}/>
+												</a>
+											</li>
+											<li>
+												<a href="https://twitter.com/pittsburghrugby" target="_blank">
+													<span className="sr-only">Twitter</span>
+													<FontAwesomeIcon icon={["fab", "twitter-square"]}/>
+												</a>
+											</li>
+										</ul>
+										<hr className={stylesFooter.footerHr}/>
+									</Col>
 								</Row>
 								<nav role="navigation" className={`${stylesFooter.footerNav} ${'row justify-content-center'}`}>
 									<StaticQuery
@@ -87,7 +90,7 @@ export default class Footer extends React.Component {
 
 														return (
 															(item.child_items ?
-																<Col className="col-12 col-md-3">
+																<Col className="col-12 col-md-4 col-lg-3">
 																	<Link
 																		to={`${slug}`}
 																		key={item.wordpress_id}
@@ -114,7 +117,7 @@ export default class Footer extends React.Component {
 																	</ul>
 																</Col>
 															:
-																<Col className="col-12 col-md-3">
+																<Col className="col-12 col-md-4 col-lg-3">
 																	<Link
 																		to={`${slug}`}
 																		key={item.wordpress_id}
