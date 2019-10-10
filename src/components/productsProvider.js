@@ -109,37 +109,49 @@ const processStripeData = (data, products) => {
 }
 
 export const skuFragment = graphql`
-  fragment Sku on StripeSku {
-    id
-    price
-    fields {
-      slug
-    }
-    inventory {
-      type
-    }
-    product {
-      id
-      name
-      description
-      active
-      caption
-      created
-	  updated
-	}
-	image
-    localFiles {
-      childImageSharp {
-          fluid(maxWidth: $maxWidth, quality: $quality) {
-            ...GatsbyImageSharpFluid_withWebp_tracedSVG
-          }
-      }
-    }
-  }
+  	fragment Sku on StripeSku {
+		id
+		price
+		fields {
+			slug
+		}
+		inventory {
+			type
+		}
+		product {
+			id
+			name
+			description
+			active
+			caption
+			created
+			updated
+			images
+			localFiles {
+				childImageSharp {
+					fluid(maxWidth: $maxWidth, quality: $quality) {
+						...GatsbyImageSharpFluid_withWebp_tracedSVG
+					}
+				}
+			}
+		}
+		attributes {
+			name
+			description
+		}
+		image
+		localFiles {
+			childImageSharp {
+				fluid(maxWidth: $maxWidth, quality: $quality) {
+					...GatsbyImageSharpFluid_withWebp_tracedSVG
+				}
+			}
+		}
+  	}
 `
 
 const skusQuery = graphql`
-  query skusQuery($maxWidth: Int = 300, $quality: Int = 92) {
+  query skusQuery($maxWidth: Int = 600, $quality: Int = 92) {
     allStripeSku {
       group(field: product___id) {
         fieldValue
