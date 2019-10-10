@@ -112,7 +112,7 @@ exports.createPages = async ({ graphql, actions }) => {
     const productTemplate = path.resolve('src/templates/product.js')
     Object.entries(products).forEach(([id, slug]) => {
       createPage({
-        path: 'buy/' + slug,
+        path: 'shop/' + slug,
         component: productTemplate,
         context: { id }
       })
