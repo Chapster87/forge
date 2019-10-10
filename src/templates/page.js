@@ -1,15 +1,12 @@
 import React, { Component } from "react";
 import { graphql } from "gatsby";
 import {
-	Container, Row, Col, Card, CardHeader, CardImg,
+	Row, Col, Card, CardHeader,
 	CardText, CardBody, CardTitle, CardSubtitle, Button
 } from 'reactstrap';
-import PostIcons from "../components/post-icons";
 
 import Layout from "../layouts/layout";
 import SEO from '../components/SEO';
-
-import stylesPage from "../styles/components/pages.module.scss";
 
 class PageTemplate extends Component {
 	render() {
@@ -21,7 +18,7 @@ class PageTemplate extends Component {
 				<article className="page container">
 					<Row className="content">
 						<div className={`${'primary'} ${'col-md-9'}`}>
-							<div className="wp-content">
+							<div className="content-main">
 								<header class="wp-head">
 									<h1
 										dangerouslySetInnerHTML={{
