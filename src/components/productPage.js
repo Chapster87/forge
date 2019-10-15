@@ -7,17 +7,19 @@ import Slider from "react-slick";
 import Img from 'gatsby-image'
 import { ProductsContext } from './productsProvider'
 import { CartContext } from './cartProvider'
+import Variation from './variation'
 
 import "slick-carousel/slick/slick.css"
 import "slick-carousel/slick/slick-theme.css"
 
+import stylesPDP from "../styles/components/product.module.scss"
+
 const ProductPage = ({ productId }) => {
   const { products } = useContext(ProductsContext)
-  const { skus } = useContext(ProductsContext)
   const { add, toggle } = useContext(CartContext)
 
   const product = products[productId]
-  const variations = product.skus
+  const variations = product.skus;
 
   return (
 	<Container>
@@ -25,7 +27,7 @@ const ProductPage = ({ productId }) => {
 			<Col xs="12">
 				<div className="content-main">
 					<Row>
-						<Col xs="12" md="6" className="pdpImages">
+						<Col xs="12" md="6" className={stylesPDP.pdpImages}>
 							<Slider className="pdpImgSlider">
 								{product.skus[0].product.localFiles && (
 									<Img fluid={product.skus[0].product.localFiles[0].childImageSharp.fluid} />
@@ -39,21 +41,15 @@ const ProductPage = ({ productId }) => {
 						</Col>
 						<Col xs="12" md="6" className="pdpDetails">
 							<h1>{product.name}</h1>
-							<p>{product.id}</p>
-							{variations.map(variation => {
+							{/* <p>{product.id}</p> */}
+							<p>{product.caption}</p>
+							<p>{product.description}</p>
 
-								return (
-									<React.Fragment>
-										<p>{variation.id} - {variation.attributes.name}</p>
-										<p>${variation.price / 100}</p>
-									</React.Fragment>
-								)
-							})}
-							<div>{product.caption}</div>
-							<br />
-							<div style={{ textAlign: 'justify' }}>{product.description}</div>
+							<Variation data={product}/>
+
 							<button
-								style={{ margin: '2rem auto' }}
+								type="button"
+								className="btn btn-primary"
 								onClick={() => {
 								add(product.skus[0].id)
 								toggle(true)
