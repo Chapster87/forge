@@ -8,7 +8,7 @@ import {
 import Layout from "../layouts/layout";
 import SEO from '../components/SEO';
 
-class PageTemplate extends Component {
+class PageTemplate extends React.Component {
 	render() {
 		const currentPage = this.props.data.wordpressPage;
 
