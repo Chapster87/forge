@@ -10,7 +10,7 @@ import PostIcons from "../components/post-icons"
 import Layout from "../layouts/layout"
 import SEO from '../components/SEO';
 
-class PostTemplate extends Component {
+class PostTemplate extends React.Component {
   render() {
     const post = this.props.data.wordpressPost
 
