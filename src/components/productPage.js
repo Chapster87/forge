@@ -44,6 +44,7 @@ const ProductPage = ({ productId }) => {
 							{/* <p>{product.id}</p> */}
 							<p>{product.caption}</p>
 							<p>{product.description}</p>
+							
 
 							<Variation data={product}/>
 
