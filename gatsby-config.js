@@ -11,7 +11,6 @@ module.exports = {
 		author: `Andrew Chapman`,
 	},
 	plugins: [
-		`gatsby-plugin-netlify-cms`,
 		`gatsby-plugin-react-helmet`,
 		{
 			resolve: `gatsby-source-filesystem`,
@@ -53,11 +52,12 @@ module.exports = {
 					"**/categories",
 					"**/tags",
 					"**/taxonomies",
-					"**/menus"
+					"**/menus",
+					"**/products/*"
 				],
 				// Blacklisted routes using glob patterns
 				excludedRoutes: [
-					"**/products/*"
+					"**/wc-analytics/*"
 				]
 			}
 		},
@@ -69,49 +69,25 @@ module.exports = {
 				}
 			}
 		},
-		// {
-		// 	resolve: '@pasdo501/gatsby-source-woocommerce',
-		// 	options: {
-		// 	   // Base URL of Wordpress site
-		// 	  api: 'pghrugby.com',
-		// 	  https: true,
-		// 	  api_keys: {
-		// 		consumer_key: 'ck_c3c6dc357dfe09f5a6104d4be2acf1bfe800d810',
-		// 		consumer_secret: 'cs_fe6e24360a997d9b437d2acfee20f8fafd23ca47',
-		// 	  },
-		// 	  // Array of strings with fields you'd like to create nodes for...
-		// 	  fields: ['products', 'products/categories'],
-		// 	  // Version of the woocommerce API to use
-		// 	  // OPTIONAL: defaults to 'wc/v1'
-		// 	  api_version: 'wc/v3',
-		// 	  // OPTIONAL: How many results to retrieve
-		// 	  per_page: 100
-		// 	}
-		// }
+		{
+			resolve: '@pasdo501/gatsby-source-woocommerce',
+			options: {
+			   // Base URL of Wordpress site
+			  api: 'pghrugby.com',
+			  https: true,
+			  api_keys: {
+				consumer_key: 'ck_7d0c2ae176b0b2f7a344b572298f2ed4bdff497e',
+				consumer_secret: 'cs_1f27daf21aedc8ccd3d9d58cc86e01eeddaeccc8',
+			  },
+			  // Array of strings with fields you'd like to create nodes for...
+			  fields: ['products', 'products/categories', 'products/attributes'],
+			  // Version of the woocommerce API to use
+			  // OPTIONAL: defaults to 'wc/v1'
+			  api_version: 'wc/v3'
+			}
+		}
 		// this (optional) plugin enables Progressive Web App + Offline functionality
 		// To learn more, visit: https://gatsby.dev/offline
 		// `gatsby-plugin-offline`,
-		`gatsby-plugin-stripe`,
-		{
-			resolve: `gatsby-source-stripe`,
-			options: {
-				objects: ['Product', 'Sku'],
-				secretKey: process.env.STRIPE_SECRET_KEY,
-				downloadFiles: true
-			}
-		}
-	],
-	// for avoiding CORS while developing Netlify Functions locally
-	// read more: https://www.gatsbyjs.org/docs/api-proxy/#advanced-proxying
-	developMiddleware: app => {
-		app.use(
-			'/.netlify/functions/',
-			proxy({
-				target: 'http://localhost:9000',
-				pathRewrite: {
-					'/.netlify/functions/': ''
-				}
-			})
-		)
-	}
+	]
 }
