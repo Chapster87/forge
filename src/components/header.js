@@ -1,6 +1,6 @@
 import PropTypes from "prop-types"
 import React from "react"
-import Cart from './cart'
+// import Cart from './cart'
 
 import MainMenu from "../components/mainMenu"
 
@@ -15,7 +15,7 @@ export default class Header extends React.Component {
 			itemType="http://schema.org/WPHeader"
 		>
 			<MainMenu />
-			<Cart />
+			{/* <Cart /> */}
 		</header>
 		);
 	}

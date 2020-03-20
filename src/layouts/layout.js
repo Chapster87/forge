@@ -8,6 +8,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { StaticQuery, graphql } from 'gatsby'
+import { CartProvider } from '../custom-hooks/use-cart';
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faFacebookSquare, faInstagram, faTwitterSquare } from '@fortawesome/free-brands-svg-icons'
 import { faEnvelope, faFolderOpen, faTag, faCaretRight, faCaretLeft  } from '@fortawesome/free-solid-svg-icons'
@@ -16,8 +17,6 @@ library.add(faFacebookSquare, faInstagram, faTwitterSquare, faEnvelope, faFolder
 
 import Header from "../components/header"
 import Footer from "../components/footer"
-import ProductsProvider from '../components/productsProvider'
-import CartProvider from '../components/cartProvider'
 
 import "../styles/global.scss"
 
@@ -34,13 +33,11 @@ const Layout = ({ children }) => (
 	  `}
 	  render={data => (
 		<React.Fragment>
-		  <ProductsProvider>
-			<CartProvider>
-				<Header />
-				<main>{children}</main>
-				<Footer/>
-			</CartProvider>
-		  </ProductsProvider>
+		<CartProvider>
+			<Header />
+			<main>{children}</main>
+			<Footer/>
+		</CartProvider>
 		</React.Fragment>
 	  )}
 	/>
