@@ -2,7 +2,7 @@
   "name": "gatsby-forge",
   "private": true,
   "description": "Pittsburgh Forge Rugby Club Website",
-  "version": "0.1.0",
+  "version": "1.5.0",
   "author": "Andrew Chapman",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.25",
@@ -10,10 +10,11 @@
     "@fortawesome/free-regular-svg-icons": "^5.11.2",
     "@fortawesome/free-solid-svg-icons": "^5.11.2",
     "@fortawesome/react-fontawesome": "^0.1.5",
+    "@material-ui/core": "^4.9.7",
     "@pasdo501/gatsby-source-woocommerce": "^0.14.0",
     "bootstrap": "^4.3.1",
     "dotenv-webpack": "^1.7.0",
-    "gatsby": "^2.15.1",
+    "gatsby": "^2.20.2",
     "gatsby-image": "^2.2.15",
     "gatsby-plugin-manifest": "^2.2.12",
     "gatsby-plugin-offline": "^2.2.10",
@@ -25,9 +26,8 @@
     "gatsby-source-wordpress": "^3.1.38",
     "gatsby-transformer-sharp": "^2.2.12",
     "he": "^1.2.0",
-    "node-sass": "^4.12.0",
+    "node-sass": "^4.13.1",
     "prop-types": "^15.7.2",
-    "styled-components": "^4.3.2",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "react-helmet": "^5.2.1",
@@ -35,7 +35,8 @@
     "react-slick": "^0.25.2",
     "reactstrap": "^8.0.1",
     "slick-carousel": "^1.8.1",
-    "slug": "^1.1.0"
+    "slug": "^1.1.0",
+    "styled-components": "^4.3.2"
   },
   "keywords": [
     "gatsby"
