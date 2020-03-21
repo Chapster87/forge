@@ -80,7 +80,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     // Create Page pages.
     const pages = result.data.allWordpressPage.edges;
 	pages.forEach((edge) => {
-        if (edge.status === 'publish') {
+        if (edge.node.status === 'publish') {
             actions.createPage({
                 path: edge.node.path,
                 component: require.resolve('./src/templates/page.js'),
@@ -94,7 +94,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     // Create Post pages.
     const posts = result.data.allWordpressPost.edges;
 	posts.forEach((edge) => {
-        if (edge.status === 'publish') {
+        if (edge.node.status === 'publish') {
             actions.createPage({
                 path: edge.node.path,
                 component: require.resolve('./src/templates/post.js'),
@@ -109,7 +109,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     const products = result.data.allWcProducts.nodes;
     products.forEach((product) => {
         if (product.status === 'publish') {
-            const slug = product.slug;
+            const slug = 'product/' + product.slug;
             actions.createPage({
                 path: slug,
                 component: require.resolve('./src/templates/product.js'),
