@@ -1,5 +1,6 @@
 import React from 'react';
-import { Button, FormGroup, Label, Input, Row, Col } from 'reactstrap';
+import Button from "./material/CustomButtons/Button.js";
+import { FormGroup, Label, Input, Row, Col } from 'reactstrap';
 import { useCart, useCartDispatch } from '../custom-hooks/use-cart';
 
 const ProductAddToCart = ({ product }) => {
@@ -41,7 +42,7 @@ const ProductAddToCart = ({ product }) => {
                 </FormGroup>
             </Col>
             <Col xs="10">
-                <Button color="primary" onClick={handleAddToCart}>Add to Cart</Button>
+                <Button variant="contained" color="primary" onClick={handleAddToCart}>Add to Cart</Button>
             </Col>
         </Row>
     );

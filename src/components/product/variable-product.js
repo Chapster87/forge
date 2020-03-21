@@ -2,7 +2,7 @@ import Img from 'gatsby-image';
 import PropTypes from 'prop-types';
 import React from 'react';
 import {
-	Container, Row, Col, Breadcrumb, BreadcrumbItem, Button
+	Container, Row, Col, Breadcrumb, BreadcrumbItem
 } from 'reactstrap';
 import ImageSlider from '../image-slider';
 import ProductAddToCart from '../product-add-to-cart';
