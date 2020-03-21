@@ -1,6 +1,8 @@
 import React from 'react';
+import Grid from '@material-ui/core/Grid';
+import TextField from '@material-ui/core/TextField';
 import Button from "./material/CustomButtons/Button.js";
-import { FormGroup, Label, Input, Row, Col } from 'reactstrap';
+import { Row, Col } from 'reactstrap';
 import { useCart, useCartDispatch } from '../custom-hooks/use-cart';
 
 const ProductAddToCart = ({ product }) => {
@@ -35,16 +37,14 @@ const ProductAddToCart = ({ product }) => {
         }
     }, [cart, setCart, quantity]);
     return (
-        <Row>
-            <Col xs="2">
-                <FormGroup>
-                    <Input aria-label="Product quanity to add to cart" type="number" min="1" value={quantity} onChange={handleQuantityInputChange} />
-                </FormGroup>
-            </Col>
-            <Col xs="10">
+        <Grid container spacing={2}>
+            <Grid item xs={2}>
+                <TextField id="outlined-basic" type="number" label="Qty" variant="outlined" min="1" value={quantity} aria-label="Product quanity to add to cart" onChange={handleQuantityInputChange}/>
+            </Grid>
+            <Grid item xs={10}>
                 <Button variant="contained" color="primary" onClick={handleAddToCart}>Add to Cart</Button>
-            </Col>
-        </Row>
+            </Grid>
+        </Grid>
     );
 };
 
