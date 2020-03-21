@@ -1,22 +1,6 @@
 import React from 'react';
-import styled from 'styled-components';
-import { Button } from 'reactstrap';
+import { Button, FormGroup, Label, Input, Row, Col } from 'reactstrap';
 import { useCart, useCartDispatch } from '../custom-hooks/use-cart';
-
-const StyledInput = styled('input')`
-    height: 100%;
-    line-height: 1;
-    width: 75px;
-    padding: 0 15px;
-    margin-right: 15px;
-    @media screen and (max-width: 991px) {
-        display: block;
-        line-height: 32px;
-        height: auto;
-        margin-top: 2px;
-        margin-bottom: 10px;
-    }
-`;
 
 const ProductAddToCart = ({ product }) => {
     const [quantity, setQuantity] = React.useState(1);
@@ -50,10 +34,16 @@ const ProductAddToCart = ({ product }) => {
         }
     }, [cart, setCart, quantity]);
     return (
-        <div>
-            <StyledInput aria-label="Product quanity to add to cart" type="number" min="1" value={quantity} onChange={handleQuantityInputChange} />
-            <Button onClick={handleAddToCart}>Add to Cart</Button>
-        </div>
+        <Row>
+            <Col xs="2">
+                <FormGroup>
+                    <Input aria-label="Product quanity to add to cart" type="number" min="1" value={quantity} onChange={handleQuantityInputChange} />
+                </FormGroup>
+            </Col>
+            <Col xs="10">
+                <Button color="primary" onClick={handleAddToCart}>Add to Cart</Button>
+            </Col>
+        </Row>
     );
 };
 
