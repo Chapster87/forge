@@ -1,15 +1,17 @@
-import { Link, graphql, StaticQuery } from "gatsby"
-import PropTypes from "prop-types"
-import React, { Fragment } from "react"
-import {
-	Container, Row, Col
-} from 'reactstrap'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import React from "react"
+import { graphql, StaticQuery } from "gatsby"
+import Container from '@material-ui/core/Container';
+import Grid from '@material-ui/core/Grid';
+import Hidden from '@material-ui/core/Hidden';
+import Typography from '@material-ui/core/Typography';
+import Link from '@material-ui/core/Link';
+import FacebookIcon from '@material-ui/icons/Facebook';
+import InstagramIcon from '@material-ui/icons/Instagram';
+import TwitterIcon from '@material-ui/icons/Twitter';
+import Box from '@material-ui/core/Box';
 
 import SponsorBar from "../components/sponsorBar"
-
 import stylesFooter from '../styles/components/footer.module.scss'
-
 import forgeBlast from '../images/forge_blast_drop.png'
 
 export default class Footer extends React.Component {
@@ -18,44 +20,51 @@ export default class Footer extends React.Component {
 			<React.Fragment>
 				<SponsorBar />
 				<footer className={stylesFooter.footer} role="contentinfo" itemType="http://schema.org/WPFooter">
-					<Container>
-						<Row>
-							<Col xs="12" md="3">
-								<div className="text-center">
-									<Link to="/contact" className={stylesFooter.joinForgeLink}>
+					<Container maxWidth="xl">
+						<Grid container spacing={2}>
+							<Grid item xs={12} md={3}>
+								<Typography component="div" align="center">
+									<Link href="/contact" className={stylesFooter.joinForgeLink}>
 										<img src={forgeBlast} class={stylesFooter.blastLogo} alt="Pittsburgh Forge Rugby Club"/>
 										<h3 className={stylesFooter.joinForgeHeadline}>Ready to get into the action?!<br/> Click here to conact us!</h3>
 									</Link>
-								</div>
-							</Col>
-							<Col xs="12" md="9">
-								<Row className={stylesFooter.social}>
-									<Col className={stylesFooter.socialWrap}>
+								</Typography>
+							</Grid>
+							<Hidden mdDown><Grid item xs={0} md={1}></Grid></Hidden>
+							<Grid container item xs={12} md={8}>
+								<Grid container item className={stylesFooter.social}>
+									<Grid item xs={12} className={stylesFooter.socialWrap}>
 										<h3 className={stylesFooter.socialHeader}>Find us on Social Media:</h3>
 										<ul className={stylesFooter.socialLinks}>
 											<li>
-												<a href="https://www.facebook.com/pittsburghrugby" target="_blank">
-													<span className="sr-only">Facebook</span>
-													<FontAwesomeIcon icon={["fab", "facebook-square"]}/>
-												</a>
+												<Typography component="span">
+													<Link href="https://www.facebook.com/pittsburghrugby" target="_blank">
+														<span className="sr-only">Facebook</span>
+														<FacebookIcon style={{ fontSize: 50 }} />
+													</Link>
+												</Typography>
 											</li>
 											<li>
-												<a href="https://www.instagram.com/pittsburghrugby/" target="_blank">
-													<span className="sr-only">Instagram</span>
-													<FontAwesomeIcon icon={["fab", "instagram"]}/>
-												</a>
+												<Typography component="span">
+													<Link href="https://www.instagram.com/pittsburghrugby/" target="_blank">
+														<span className="sr-only">Instagram</span>
+														<InstagramIcon style={{ fontSize: 50 }} />
+													</Link>
+												</Typography>
 											</li>
 											<li>
-												<a href="https://twitter.com/pittsburghrugby" target="_blank">
-													<span className="sr-only">Twitter</span>
-													<FontAwesomeIcon icon={["fab", "twitter-square"]}/>
-												</a>
+												<Typography component="span">
+													<Link href="https://twitter.com/pittsburghrugby" target="_blank">
+														<span className="sr-only">Twitter</span>
+														<TwitterIcon style={{ fontSize: 50 }} />
+													</Link>
+												</Typography>
 											</li>
 										</ul>
 										<hr className={stylesFooter.footerHr}/>
-									</Col>
-								</Row>
-								<nav role="navigation" className={`${stylesFooter.footerNav} ${'row justify-content-center'}`}>
+									</Grid>
+								</Grid>
+								<Grid component="nav" container item role="navigation" justify="center" className={stylesFooter.footerNav}>
 									<StaticQuery
 										query={graphql`
 											{
@@ -90,42 +99,55 @@ export default class Footer extends React.Component {
 
 														return (
 															(item.child_items ?
-																<Col className="col-12 col-md-4 col-lg-3">
-																	<Link
-																		to={`${slug}`}
-																		key={item.wordpress_id}
-																		className={stylesFooter.footerNavHeader}
-																	>
-																		{item.title}
-																	</Link>
-																	<ul className={stylesFooter.footerSubMenu}>
-																		{item.child_items && item.child_items.map((subitem) => {
-																			let fullSubURL = subitem.url,
-																			subSlug = fullSubURL.split("pghrugby.com")[1];
+																<Grid item xs={12} md={4} lg={4}>
+																	<Box textAlign="center">
+																		<Typography variant="p" component="h2">
+																			<Link
+																				href={`${slug}`}
+																				color="inherit"
+																				key={item.wordpress_id}
+																				className={stylesFooter.footerNavHeader}
+																			>
+																				{item.title}
+																			</Link>
+																		</Typography>
+																		<ul className={stylesFooter.footerSubMenu}>
+																			{item.child_items && item.child_items.map((subitem) => {
+																				let fullSubURL = subitem.url,
+																				subSlug = fullSubURL.split("pghrugby.com")[1];
 
-																			return (
-																				<li>
-																					<Link
-																						to={`${subSlug}`}
-																						key={item.wordpress_id}
-																					>
-																						{subitem.title}
-																					</Link>
-																				</li>
-																			)
-																		})}
-																	</ul>
-																</Col>
+																				return (
+																					<li>
+																						<Typography component="span">
+																							<Link
+																								href={`${subSlug}`}
+																								color="inherit"
+																								key={item.wordpress_id}
+																							>
+																								{subitem.title}
+																							</Link>
+																						</Typography>
+																					</li>
+																				)
+																			})}
+																		</ul>
+																	</Box>
+																</Grid>
 															:
-																<Col className="col-12 col-md-4 col-lg-3">
-																	<Link
-																		to={`${slug}`}
-																		key={item.wordpress_id}
-																		className={stylesFooter.footerNavHeader}
-																	>
-																		{item.title}
-																	</Link>
-																</Col>
+																<Grid item xs={12} md={4} lg={3}>
+																	<Box textAlign="center">
+																		<Typography variant="p" component="h2">
+																			<Link
+																				href={`${slug}`}
+																				color="inherit"
+																				key={item.wordpress_id}
+																				className={stylesFooter.footerNavHeader}
+																			>
+																				{item.title}
+																			</Link>
+																		</Typography>
+																	</Box>
+																</Grid>
 															)
 														)
 													})}
@@ -133,14 +155,16 @@ export default class Footer extends React.Component {
 											);
 										}}
 									/>
-								</nav>
-							</Col>
-						</Row>
+								</Grid>
+							</Grid>
+						</Grid>
 					</Container>
-					<Container fluid>
-						<Row className="justify-content-center">
-							<p className="copyright">©{new Date().getFullYear()} Pittsburgh Forge Rugby Club.</p>
-						</Row>
+					<Container maxWidth={false}>
+						<Grid container justify="center">
+							<Box my={2}>
+								<p className="copyright">©{new Date().getFullYear()} Pittsburgh Forge Rugby Club.</p>
+							</Box>
+						</Grid>
 					</Container>
 				</footer>
 			</React.Fragment>

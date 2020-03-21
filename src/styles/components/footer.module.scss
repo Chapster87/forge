@@ -67,9 +67,11 @@
 			width: 100%;
 			padding: 0;
 			transition: color ease 0.3s;
+			display: block;
 
 			&:hover {
 				color: $forge-red;
+				text-decoration: underline;
 			}
 		}
 	}
@@ -125,11 +127,7 @@
 				}
 			}
 		}
-
-		svg {
-			height: 2rem;
-			width: 2rem;
-		}
+		
 	}
 }
 
