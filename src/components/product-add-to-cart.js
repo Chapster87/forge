@@ -1,8 +1,7 @@
 import React from 'react';
 import Grid from '@material-ui/core/Grid';
-import TextField from '@material-ui/core/TextField';
-import Button from "./material/CustomButtons/Button.js";
-import { Row, Col } from 'reactstrap';
+import TextField from "./material/TextField.js";
+import Button from "./material/Button.js";
 import { useCart, useCartDispatch } from '../custom-hooks/use-cart';
 
 const ProductAddToCart = ({ product }) => {
@@ -39,7 +38,7 @@ const ProductAddToCart = ({ product }) => {
     return (
         <Grid container spacing={2}>
             <Grid item xs={2}>
-                <TextField id="outlined-basic" type="number" label="Qty" variant="outlined" min="1" value={quantity} aria-label="Product quanity to add to cart" onChange={handleQuantityInputChange}/>
+                <TextField id="outlined-basic" type="number" label="Qty" variant="filled" min="1" value={quantity} aria-label="Product quanity to add to cart" onChange={handleQuantityInputChange}/>
             </Grid>
             <Grid item xs={10}>
                 <Button variant="contained" color="primary" onClick={handleAddToCart}>Add to Cart</Button>

@@ -1,9 +1,10 @@
 import Img from 'gatsby-image';
 import PropTypes from 'prop-types';
 import React from 'react';
-import {
-	Container, Row, Col, Breadcrumb, BreadcrumbItem
-} from 'reactstrap';
+import Container from '@material-ui/core/Container';
+import Grid from '@material-ui/core/Grid';
+import Typography from '@material-ui/core/Typography';
+import Link from '@material-ui/core/Link';
 import ImageSlider from '../image-slider';
 import ProductAddToCart from '../product-add-to-cart';
 import ProductAttributeSelect from '../product-attribute-select';
@@ -29,31 +30,40 @@ const SimpleProduct = ({ product }) => {
         },
     ];
     return (
-      <Container>
-        <Row className="content" sale={product.on_sale}>
-          <Col xs="12">
-            <div className="content-main">
-              <Row>
-                  <Col xs="12" md="6" className={stylesPDP.pdpImages}>
+      <Container maxWidth="xl">
+        <Grid container className="content" sale={product.on_sale}>
+          <Grid container item xs={12}>
+              <Grid container className="content-main" spacing={4}>
+                  <Grid item xs={12} md={6} className={stylesPDP.pdpImages}>
                       {product.images.length === 1 && (
                           <Img fluid={product.images[0].localFile.childImageSharp.fluid} alt={product.images[0].alt || product.images[0].name} style={{position: "relative"}}/>
                       )}
                       {product.images.length > 1 && <ImageSlider images={product.images} imageSize="350px" />}
-                  </Col>
-                  <Col xs="12" md="6" className="pdpDetails">
-                      <h1>{product.name}</h1>
+                  </Grid>
+                  <Grid container item xs={12} md={6} className="pdpDetails" spacing={2}>
+                      <Grid item xs={12}>
+                        <Typography component="h1" variant="h1">
+                            {product.name}
+                        </Typography>
+                      </Grid>
                       {/* <p>{product.id}</p> */}
-                      <ProductPrice onSale={product.on_sale} regularPrice={product.regular_price} salePrice={product.sale_price} />
-                      {product.attributes.map((attribute) => (
-                            <ProductAttributeSelect attribute={attribute} key={attribute.name} />
-                      ))}
-                      <ProductAddToCart product={product} />
-                  </Col>
+                      <Grid item xs={12}>
+                        <ProductPrice onSale={product.on_sale} regularPrice={product.regular_price} salePrice={product.sale_price} />
+                      </Grid>
+                      <Grid item xs={6}>
+                        {product.attributes.map((attribute) => (
+                              <ProductAttributeSelect attribute={attribute} key={attribute.name} />
+                        ))}
+                      </Grid>
+                      <Grid item xs={12}>
+                        <ProductAddToCart product={product} />
+                      </Grid>
+                  </Grid>
                   <ProductTabs tabs={productTabs} />
-              </Row>
-            </div>
-          </Col>
-        </Row>
+              </Grid>
+
+          </Grid>
+        </Grid>
       </Container>
     );
 };

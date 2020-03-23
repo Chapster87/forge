@@ -16,20 +16,26 @@ import "../styles/global.scss"
 
 const theme = createMuiTheme({
 	breakpoints: {
-	  // Define custom breakpoint values.
-	  // These will apply to Material-UI components that use responsive
-	  // breakpoints, such as `Grid` and `Hidden`. You can also use the
-	  // theme breakpoint functions `up`, `down`, and `between` to create
-	  // media queries for these breakpoints
-	  values: {
-		xs: 0,
-		sm: 320,
-		md: 768,
-		lg: 1200,
-		xl: 1440
-	  }
+		values: {
+			xs: 0,
+			sm: 320,
+			md: 768,
+			lg: 1200,
+			xl: 1440
+		}
+	},
+	typography: {
+		h1: {
+			fontSize: '2.5rem',
+			lineHeight: "1.333rem",
+			textRendering: 'optimizelegibility',
+			fontWeight: 500,
+			fontFamily: 'Oswald,"Helvetica Neue",Helvetica,Arial,sans-serif'
+		}
 	}
 });
+
+
 
 const Layout = ({ children }) => (
 	<StaticQuery
