@@ -1,8 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import ShoppingCartIcon from '../../assets/svg/shopping-cart.svg';
-import { colorBorder, colorPrimary } from '../helpers/variables';
-import { useCart, useCartDispatch } from './custom-hooks/use-cart';
+import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
+import { useCart, useCartDispatch } from '../custom-hooks/use-cart';
 
 const StyledWrapper = styled('div')`
     margin-left: auto;
@@ -89,7 +88,7 @@ const MiniCart = () => {
     return (
         <StyledWrapper>
             <StyledShoppingCartButton aria-label="Toggle minicart items" onClick={() => setShowCart(!showCart)}>
-                <StyledShoppingCartIcon />
+                <ShoppingCartIcon />
                 {cart.length !== 0 && <StyledCartCount>{cart.length}</StyledCartCount>}
             </StyledShoppingCartButton>
             {showCart && (

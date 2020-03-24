@@ -17,6 +17,12 @@ import "slick-carousel/slick/slick-theme.css"
 import stylesPDP from "../../styles/components/product.module.scss"
 
 const SimpleProduct = ({ product }) => {
+    const [selectedAttr, setSelectedAttr] = React.useState();
+
+    const updateAttr = (attr) => {
+      setSelectedAttr(attr);
+    }
+
     const productTabs = [
         {
             id: 'description',
@@ -52,7 +58,7 @@ const SimpleProduct = ({ product }) => {
                       </Grid>
                       <Grid item xs={6}>
                         {product.attributes.map((attribute) => (
-                              <ProductAttributeSelect attribute={attribute} key={attribute.name} />
+                              <ProductAttributeSelect attribute={attribute} key={attribute.name} onAttrUpdate={updateAttr} />
                         ))}
                       </Grid>
                       <Grid item xs={12}>

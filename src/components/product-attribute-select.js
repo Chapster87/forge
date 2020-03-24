@@ -17,9 +17,14 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const ProductAttributeSelect = ({ attribute }) => {
+const ProductAttributeSelect = ({ attribute, onAttrUpdate }) => {
     const classes = useStyles();
     const [activeOption, setActiveOption] = React.useState('');
+
+    const updateAttr = (e) => {
+        setActiveOption(e.target.value);
+        onAttrUpdate(e.target.value);
+    }
 
     if (!attribute.visible) {
         return null;
@@ -33,7 +38,7 @@ const ProductAttributeSelect = ({ attribute }) => {
                 id="prod-attr-select"
                 value={activeOption}
                 autoWidth={true}
-                onChange={(e) => setActiveOption(e.target.value)}
+                onChange={(e) => updateAttr(e)}
                 aria-label={`Select a ${attribute.name}`}
                 >
                     {attribute.options.map((option) => (
@@ -47,7 +52,7 @@ const ProductAttributeSelect = ({ attribute }) => {
 };
 
 ProductAttributeSelect.propTypes = {
-    attribute: PropTypes.object.isRequired,
+    attribute: PropTypes.object.isRequired
 };
 
 export default ProductAttributeSelect;
