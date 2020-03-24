@@ -2,6 +2,7 @@ import React from 'react';
 import Grid from '@material-ui/core/Grid';
 import TextField from "./material/TextField.js";
 import Button from "./material/Button.js";
+import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import { useCart, useCartDispatch } from '../custom-hooks/use-cart';
 
 const ProductAddToCart = ({ product }) => {
@@ -41,7 +42,7 @@ const ProductAddToCart = ({ product }) => {
                 <TextField id="outlined-basic" type="number" label="Qty" variant="filled" min="1" value={quantity} aria-label="Product quanity to add to cart" onChange={handleQuantityInputChange}/>
             </Grid>
             <Grid item xs={10}>
-                <Button variant="contained" color="primary" onClick={handleAddToCart}>Add to Cart</Button>
+                <Button variant="contained" color="primary" onClick={handleAddToCart} startIcon={<ShoppingCartIcon />}>Add to Cart</Button>
             </Grid>
         </Grid>
     );

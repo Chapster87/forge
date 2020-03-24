@@ -19,10 +19,9 @@ const buttonStyle = {
     border: "none",
     borderRadius: "3px",
     position: "relative",
-    padding: "12px 30px",
-    margin: ".3125rem 1px",
-    fontSize: "12px",
-    fontWeight: "400",
+    padding: "18px 30px",
+    fontSize: "14px",
+    fontWeight: "700",
     textTransform: "uppercase",
     letterSpacing: "0",
     willChange: "box-shadow, transform",
@@ -75,11 +74,11 @@ const buttonStyle = {
     width: "100%"
   },
   primary: {
-    backgroundColor: primaryColor,
+    background: "rgb(255,184,28)",
+    background: "linear-gradient(0deg, rgba(255,184,28,1) 40%, rgba(255,207,28,1) 80%)",
     boxShadow:
       "0 2px 2px 0 rgba(156, 39, 176, 0.14), 0 3px 1px -2px rgba(156, 39, 176, 0.2), 0 1px 5px 0 rgba(156, 39, 176, 0.12)",
     "&:hover,&:focus": {
-      backgroundColor: primaryColor,
       boxShadow:
         "0 14px 26px -12px rgba(156, 39, 176, 0.42), 0 4px 23px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(156, 39, 176, 0.2)"
     }

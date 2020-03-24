@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
+import PurchaseButton from '../components/checkout/checkout-button';
 import { useCart, useCartDispatch } from '../custom-hooks/use-cart';
 
 const StyledWrapper = styled('div')`
@@ -126,6 +127,7 @@ const MiniCart = () => {
                                     </StyledCartListItem>
                                 ))}
                             </StyledCartList>
+                            <PurchaseButton />
                         </StyledCart>
                     )}
                 </>
