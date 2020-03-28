@@ -27,7 +27,7 @@ const theme = createMuiTheme({
 	typography: {
 		h1: {
 			fontSize: '2.5rem',
-			lineHeight: "1.333rem",
+			lineHeight: "1.5",
 			textRendering: 'optimizelegibility',
 			fontWeight: 500,
 			fontFamily: 'Oswald,"Helvetica Neue",Helvetica,Arial,sans-serif'
