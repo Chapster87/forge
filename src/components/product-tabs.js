@@ -1,64 +1,76 @@
-import PropTypes from 'prop-types';
 import React from 'react';
-import styled from 'styled-components';
+import PropTypes from 'prop-types';
+import { makeStyles } from '@material-ui/core/styles';
+import AppBar from '@material-ui/core/AppBar';
+import Tabs from '@material-ui/core/Tabs';
+import Tab from '@material-ui/core/Tab';
+import Typography from '@material-ui/core/Typography';
+import Box from '@material-ui/core/Box';
 
-const StyledTabList = styled('ul')`
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    list-style: none;
-    margin: 40px 0 0 0;
-    padding: 0 10px;
-    list-style-type: none;
-    border-bottom: 1px solid #333;
-`;
+function TabPanel(props) {
+  const { children, value, index, ...other } = props;
 
-const StyledTabListItem = styled('li')`
-    &:not(:last-of-type) {
-        margin-right: 15px;
-    }
-`;
+  return (
+    <Typography
+      component="div"
+      role="tabpanel"
+      hidden={value !== index}
+      id={`simple-tabpanel-${index}`}
+      aria-labelledby={`simple-tab-${index}`}
+      {...other}
+    >
+      {value === index && <Box p={3}>{children}</Box>}
+    </Typography>
+  );
+}
 
-const StyledTabButton = styled('button')`
-    display: inline-block;
-    font-size: 18px;
-    line-height: 1;
-    padding: 10px 15px;
-    background: white;
-    border: 1px solid #333;
-    border-top-left-radius: 3px;
-    border-top-right-radius: 3px;
-    margin-bottom: -1px;
-    cursor: pointer;
-    &[aria-selected='true'] {
-        border-bottom-color: white;
-    }
-`;
-const StyledTabPanel = styled('div')`
-    padding: 0 10px;
-`;
+function a11yProps(index) {
+  return {
+    id: `simple-tab-${index}`,
+    'aria-controls': `simple-tabpanel-${index}`,
+  };
+}
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    flexGrow: 1,
+    backgroundColor: theme.palette.background.paper,
+  },
+}));
 
 const ProductTabs = ({ tabs }) => {
+  const classes = useStyles();
+  const [value, setValue] = React.useState(0);
 
-    const [activeTabIndex, setActiveTabIndex] = React.useState(0);
-    if (!tabs.length) {
-        return null;
-    }
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
+  };
 
-    return (
-        <>
-            <StyledTabList role="tablist">
-                {tabs.map((tab, index) => (
-                    <StyledTabListItem key={tab.id} role="presentation">
-                        <StyledTabButton role="tab" aria-selected={tabs[activeTabIndex].id === tab.id} onClick={() => setActiveTabIndex(index)}>
-                            {tab.title}
-                        </StyledTabButton>
-                    </StyledTabListItem>
-                ))}
-            </StyledTabList>
-            <StyledTabPanel role="tabpanel" aria-label={tabs[activeTabIndex].title} dangerouslySetInnerHTML={{ __html: tabs[activeTabIndex].content }} />
-        </>
-    );
+  return (
+    <div className={classes.root}>
+      <AppBar position="static">
+        <Tabs value={value} onChange={handleChange} aria-label="simple tabs example">
+            {tabs.map((tab, index) => (
+                <Tab label={tab.title} {...a11yProps(index)} />
+            ))}
+        </Tabs>
+      </AppBar>
+
+      {tabs.map((tab, index) => (
+        <TabPanel value={value} index={index}>
+            <Box
+                dangerouslySetInnerHTML={{ __html: tab.content }}
+            />
+        </TabPanel>
+      ))}
+    </div>
+  );
+}
+
+TabPanel.propTypes = {
+    children: PropTypes.node,
+    index: PropTypes.any.isRequired,
+    value: PropTypes.any.isRequired,
 };
 
 ProductTabs.propTypes = {

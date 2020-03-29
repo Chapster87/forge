@@ -1,4 +1,4 @@
-import Img from 'gatsby-image';
+import Img from 'gatsby-image/withIEPolyfill';
 import PropTypes from 'prop-types';
 import React from 'react';
 import Container from '@material-ui/core/Container';
@@ -10,6 +10,7 @@ import ProductAddToCart from '../product-add-to-cart';
 import ProductAttributeSelect from '../product-attribute-select';
 import ProductPrice from '../product-price';
 import ProductTabs from '../product-tabs';
+import Breadcrumbs from '../breadcrumbs';
 
 import "slick-carousel/slick/slick.css"
 import "slick-carousel/slick/slick-theme.css"
@@ -40,9 +41,18 @@ const SimpleProduct = ({ product }) => {
         <Grid container className="content" sale={product.on_sale}>
           <Grid container item xs={12}>
               <Grid container className="content-main" spacing={4}>
+                  <Grid item xs={12}>
+                      <Breadcrumbs />
+                  </Grid>
                   <Grid item xs={12} md={6} className={stylesPDP.pdpImages}>
                       {product.images.length === 1 && (
-                          <Img fluid={product.images[0].localFile.childImageSharp.fluid} alt={product.images[0].alt || product.images[0].name} style={{position: "relative"}}/>
+                          <Img 
+                            fluid={product.images[0].localFile.childImageSharp.fluid}
+                            alt={product.images[0].alt || product.images[0].name}
+                            objectFit="contain"
+                            fadeIn="false"
+                            style={{height: "100%", minHeight: "320px"}}
+                          />
                       )}
                       {product.images.length > 1 && <ImageSlider images={product.images} imageSize="350px" />}
                   </Grid>
