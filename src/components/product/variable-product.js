@@ -4,8 +4,8 @@ import React from 'react';
 import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
-import Link from '@material-ui/core/Link';
 import ImageSlider from '../image-slider';
+import ProductFields from '../product-fields';
 import ProductAddToCart from '../product-add-to-cart';
 import ProductAttributeSelect from '../product-attribute-select';
 import ProductPrice from '../product-price';
@@ -56,11 +56,12 @@ const SimpleProduct = ({ product }) => {
                       <Grid item xs={12}>
                         <ProductPrice onSale={product.on_sale} regularPrice={product.regular_price} salePrice={product.sale_price} />
                       </Grid>
-                      <Grid item xs={6}>
+                      <Grid container item spacing={2} xs={12}>
                         {product.attributes.map((attribute) => (
                               <ProductAttributeSelect attribute={attribute} key={attribute.name} onAttrUpdate={updateAttr} />
                         ))}
                       </Grid>
+                      <ProductFields prodID={product.id}/>
                       <Grid item xs={12}>
                         <ProductAddToCart product={product} />
                       </Grid>

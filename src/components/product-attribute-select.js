@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
+import Grid from '@material-ui/core/Grid';
 import { FormGroup, Label, Input } from 'reactstrap';
 import { makeStyles } from '@material-ui/core/styles';
 import InputLabel from "./material/InputLabel.js";
@@ -31,23 +32,24 @@ const ProductAttributeSelect = ({ attribute, onAttrUpdate }) => {
     }
 
     return (
-        <FormControl variant="filled" className={classes.formControl}>
-            <InputLabel id="prod-attr-select-label">{`Select ${attribute.name}`}</InputLabel>
-            <Select 
-                labelId="prod-attr-select-label"
-                id="prod-attr-select"
-                value={activeOption}
-                autoWidth={true}
-                onChange={(e) => updateAttr(e)}
-                aria-label={`Select a ${attribute.name}`}
-                >
-                    {attribute.options.map((option) => (
-                        <MenuItem value={option} key={option}>
-                            {option}
-                        </MenuItem>
-                    ))}
-            </Select>
-        </FormControl>
+        <Grid item xs={12} lg={6}>
+            <FormControl variant="filled" fullWidth="true" className={classes.formControl}>
+                <InputLabel id="prod-attr-select-label">{`Select ${attribute.name}`}</InputLabel>
+                <Select
+                    labelId="prod-attr-select-label"
+                    id="prod-attr-select"
+                    value={activeOption}
+                    onChange={(e) => updateAttr(e)}
+                    aria-label={`Select a ${attribute.name}`}
+                    >
+                        {attribute.options.map((option) => (
+                            <MenuItem value={option} key={option}>
+                                {option}
+                            </MenuItem>
+                        ))}
+                </Select>
+            </FormControl>
+        </Grid>
     );
 };
 
