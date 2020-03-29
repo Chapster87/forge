@@ -12,9 +12,7 @@ const ProductFields = ({prodID}) => {
                 </React.Fragment>
             );
         default:
-            return (
-                <p>This product's fields aren't configured.</p>
-            );
+            return null;
     }
 };
 

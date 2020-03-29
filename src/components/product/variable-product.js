@@ -37,51 +37,51 @@ const SimpleProduct = ({ product }) => {
         },
     ];
     return (
-      <Container maxWidth="xl">
-        <Grid container className="content" sale={product.on_sale}>
-          <Grid container item xs={12}>
-              <Grid container className="content-main" spacing={4}>
-                  <Grid item xs={12}>
-                      <Breadcrumbs />
-                  </Grid>
-                  <Grid item xs={12} md={6} className={stylesPDP.pdpImages}>
-                      {product.images.length === 1 && (
-                          <Img 
-                            fluid={product.images[0].localFile.childImageSharp.fluid}
-                            alt={product.images[0].alt || product.images[0].name}
-                            objectFit="contain"
-                            fadeIn="false"
-                            style={{height: "100%", minHeight: "320px"}}
-                          />
-                      )}
-                      {product.images.length > 1 && <ImageSlider images={product.images} imageSize="350px" />}
-                  </Grid>
-                  <Grid container item xs={12} md={6} className="pdpDetails" spacing={2}>
-                      <Grid item xs={12}>
-                        <Typography component="h1" variant="h1">
-                            {product.name}
-                        </Typography>
-                      </Grid>
-                      {/* <p>{product.id}</p> */}
-                      <Grid item xs={12}>
-                        <ProductPrice onSale={product.on_sale} regularPrice={product.regular_price} salePrice={product.sale_price} />
-                      </Grid>
-                      <Grid container item spacing={2} xs={12}>
-                        {product.attributes.map((attribute) => (
-                              <ProductAttributeSelect attribute={attribute} key={attribute.name} onAttrUpdate={updateAttr} />
-                        ))}
-                      </Grid>
-                      <ProductFields prodID={product.id}/>
-                      <Grid item xs={12}>
-                        <ProductAddToCart product={product} />
-                      </Grid>
-                  </Grid>
-                  <ProductTabs tabs={productTabs} />
-              </Grid>
-
-          </Grid>
-        </Grid>
-      </Container>
+        <Container maxWidth="xl">
+            <Grid container className="content" sale={product.on_sale}>
+                <Grid container item xs={12}>
+                    <Grid container className="content-main" spacing={4}>
+                        <Grid item xs={12}>
+                            <Breadcrumbs />
+                        </Grid>
+                        <Grid item xs={12} md={6} className={stylesPDP.pdpImages}>
+                            {product.images.length === 1 && (
+                                <Img 
+                                    fluid={product.images[0].localFile.childImageSharp.fluid}
+                                    alt={product.images[0].alt || product.images[0].name}
+                                    objectFit="contain"
+                                    fadeIn="false"
+                                    style={{height: "100%", minHeight: "320px"}}
+                                />
+                            )}
+                            {product.images.length > 1 && <ImageSlider images={product.images} imageSize="350px" />}
+                        </Grid>
+                        <Grid container item xs={12} md={6} className="pdpDetails" spacing={2}>
+                            <Grid item xs={12}>
+                                <Typography component="h1" variant="h1">
+                                    {product.name}
+                                </Typography>
+                            </Grid>
+                            <Grid item xs={12}>
+                                <ProductPrice onSale={product.on_sale} regularPrice={product.regular_price} salePrice={product.sale_price} />
+                            </Grid>
+                            {product.attributes.length > 0 ? (
+                                <Grid container item spacing={2} xs={12}>
+                                    {product.attributes.map((attribute) => (
+                                        <ProductAttributeSelect attribute={attribute} key={attribute.name} onAttrUpdate={updateAttr} />
+                                    ))}
+                                </Grid>
+                            ) : null}
+                            <ProductFields prodID={product.id}/>
+                            <Grid item xs={12}>
+                                <ProductAddToCart product={product} />
+                            </Grid>
+                        </Grid>
+                        <ProductTabs tabs={productTabs} />
+                    </Grid>
+                </Grid>
+            </Grid>
+        </Container>
     );
 };
 
