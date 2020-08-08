@@ -8,7 +8,7 @@ on:
   push:
     branches: [ develop ]
   pull_request:
-    branches: [ develop ]    
+    branches: [ develop ]
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -19,9 +19,25 @@ jobs:
     - uses: actions/checkout@v2.1.0
       with:
         fetch-depth: 2
+
+    - name: Use Node.js 12.x
+      uses: actions/setup-node@v1
+      with:
+        node-version: '12.x'
+
+    - name: Build Project
+      run: |
+        npm install
+        npx gatsby build
+
+    - name: List output files
+      run: ls
+
     - name: FTP-Deploy-Action
       uses: SamKirkland/FTP-Deploy-Action@3.1.1
       with:
         ftp-server: ecngx245.inmotionhosting.com
         ftp-username: deployment@pghrugby.com
-        ftp-password: your_password
+        ftp-password: ${{ secrets.FTP_PASSWORD }}
+        git-ftp-args: --remote-root staging.pghrughy.com
+        local-dir: public
