@@ -1,0 +1,2 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[9],{mTwM:function(t,e,a){"use strict";a.r(e);var n=a("q1tI"),r=a.n(n),c=a("Wbzz"),o=a("hTlr"),u=a("EYWl");a("t8Zj"),e.default=function(t){var e=t.products;return r.a.createElement(o.a,null,r.a.createElement(u.a,{title:"Products"}),r.a.createElement(c.Link,{to:"/"},"Go back to the homepage"),r.a.createElement(ProductsList,{products:e}))}}}]);
+//# sourceMappingURL=component---src-pages-products-js-b5e5f89485fd59d4399a.js.map
