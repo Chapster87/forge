@@ -57,7 +57,10 @@ module.exports = {
 				],
 				// Blacklisted routes using glob patterns
 				excludedRoutes: [
-					"**/wc-analytics/*"
+					"**/wc-analytics/*",
+					"**/products/*",
+					"**/reports/*",
+					"**/indexation/*"
 				]
 			}
 		},
@@ -68,26 +71,30 @@ module.exports = {
 					families: ['Lato:400,400i,700,700i,900,900i', 'Oswald:400,500,600,700', 'Roboto:400,400i,500,500i,700,700i,900,900i']
 				}
 			}
-		},
-		{
-			resolve: '@pasdo501/gatsby-source-woocommerce',
-			options: {
-			   // Base URL of Wordpress site
-			  api: 'pghrugby.com',
-			  https: true,
-			  api_keys: {
-				consumer_key: 'ck_7d0c2ae176b0b2f7a344b572298f2ed4bdff497e',
-				consumer_secret: 'cs_1f27daf21aedc8ccd3d9d58cc86e01eeddaeccc8',
-			  },
-			  // Array of strings with fields you'd like to create nodes for...
-			  fields: ['products', 'products/categories', 'products/attributes'],
-			  // Version of the woocommerce API to use
-			  // OPTIONAL: defaults to 'wc/v1'
-			  api_version: 'wc/v3'
-			}
 		}
 		// this (optional) plugin enables Progressive Web App + Offline functionality
 		// To learn more, visit: https://gatsby.dev/offline
 		// `gatsby-plugin-offline`,
 	]
 }
+
+
+/* Commented WooCommerce Plugin
+{
+	resolve: '@pasdo501/gatsby-source-woocommerce',
+	options: {
+		// Base URL of Wordpress site
+		api: 'pghrugby.com',
+		https: true,
+		api_keys: {
+		consumer_key: 'ck_7d0c2ae176b0b2f7a344b572298f2ed4bdff497e',
+		consumer_secret: 'cs_1f27daf21aedc8ccd3d9d58cc86e01eeddaeccc8',
+		},
+		// Array of strings with fields you'd like to create nodes for...
+		fields: ['products', 'products/categories', 'products/attributes'],
+		// Version of the woocommerce API to use
+		// OPTIONAL: defaults to 'wc/v1'
+		api_version: 'wc/v3'
+	}
+}
+*/

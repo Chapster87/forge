@@ -24,6 +24,52 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
                     }
                 }
             }
+            allWcProducts {
+                nodes {
+                    id
+                    name
+                    type
+                    sku
+                    slug
+                    regular_price
+                    sale_price
+                    on_sale
+                    description
+                    short_description
+                    status
+                    external_url
+                    attributes {
+                        id
+                        name
+                        visible
+                        variation
+                        options
+                    }
+                    product_variations {
+                        id
+                        description
+                        sku
+                        stock_status
+                        regular_price
+                        sale_price
+                        on_sale
+                    }
+                    images {
+                        src
+                        name
+                        alt
+                        localFile {
+                            childImageSharp {
+                                fluid(maxWidth: 720) {
+                                    base64
+                                    src
+                                    srcSet
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
     `);
 
@@ -56,6 +102,29 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
                     id: edge.node.id,
                 },
             });
+        }
+    });
+    
+
+    const products = result.data.allWcProducts.nodes;
+    products.forEach((product) => {
+        if (product.status === 'publish') {
+            const slug = 'product/' + product.slug;
+            actions.createPage({
+                path: slug,
+                component: require.resolve('./src/templates/product.js'),
+                context: {
+                    product: product,
+                },
+            });
+        }
+    });
+
+    actions.createPage({
+        path: '/products',
+        component: require.resolve('./src/pages/products.js'),
+        context: {
+            products: products
         }
     });
 
