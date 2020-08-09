@@ -13,7 +13,7 @@ class Home extends Component {
       <Layout>
         <React.Fragment>
 		  <SEO title="Homepage" keywords={[`gatsby`, `application`, `react`]} />
-		  <Link to="/products">Go to the products</Link>
+		  <Link to="/products">Go to the products - NOT WORKING</Link>
           <h1>Pages</h1>
           {data.allWordpressPage.edges.map(({ node }) => (
             <div key={node.slug}>
