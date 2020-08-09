@@ -1,2 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[9],{mTwM:function(e,t,n){"use strict";n.r(t);var a=n("q1tI"),o=n.n(a),c=n("Wbzz"),r=n("hTlr"),l=n("EYWl");n("t8Zj"),t.default=function(e){e.products;return o.a.createElement(r.a,null,o.a.createElement(l.a,{title:"Products"}),o.a.createElement(c.Link,{to:"/"},"Go back to the homepage"))}}}]);
-//# sourceMappingURL=component---src-pages-products-js-dbeb1d5215ad781b1c8d.js.map
