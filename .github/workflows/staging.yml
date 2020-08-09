@@ -1,9 +1,7 @@
-# This is a basic workflow to help you get started with Actions
-
 name: Develop to Staging Publish
 
 # Controls when the action will run. Triggers the workflow on push or pull request
-# events but only for the master branch
+# events but only for the develop branch
 on:
   push:
     branches: [ develop ]
@@ -39,8 +37,8 @@ jobs:
     - name: FTP-Deploy-Action
       uses: SamKirkland/FTP-Deploy-Action@3.1.1
       with:
-        ftp-server: ${{ secrets.FTP_SERVER }}${{ secrets.FTP_DESTINATION }}
+        ftp-server: ${{ secrets.FTP_SERVER }}${{ secrets.FTP_DESTINATION }}/
         ftp-username: ${{ secrets.FTP_USERNAME }}
         ftp-password: ${{ secrets.FTP_PASSWORD }}
         git-ftp-args: --insecure
-        local-dir: ./public
+        local-dir: public/
