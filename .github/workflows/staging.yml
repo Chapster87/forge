@@ -30,14 +30,17 @@ jobs:
         npm install
         npx gatsby build
 
+    - name: git status
+      run: git status -uno --porcelain
+
     - name: List output files
       run: ls
 
     - name: FTP-Deploy-Action
       uses: SamKirkland/FTP-Deploy-Action@3.1.1
       with:
-        ftp-server: ecngx245.inmotionhosting.com
-        ftp-username: deployment@pghrugby.com
+        ftp-server: ${{ secrets.FTP_SERVER }}${{ secrets.FTP_DESTINATION }}
+        ftp-username: ${{ secrets.FTP_USERNAME }}
         ftp-password: ${{ secrets.FTP_PASSWORD }}
-        git-ftp-args: --remote-root staging.pghrughy.com
-        local-dir: public
+        git-ftp-args: --insecure
+        local-dir: ./public
