@@ -1,50 +1,46 @@
 import React, { Component } from "react"
+import CardMedia from '@material-ui/core/CardMedia';
 import { Link, graphql } from "gatsby"
 import { FaRegClock } from "react-icons/fa"
 
 import Layout from "../layouts/layout"
 import SEO from '../components/SEO'
 
-class Home extends Component {
-  render() {
-    const data = this.props.data
+import "../styles/homepage.scss"
 
-    return (
-      <Layout>
-        <React.Fragment>
-		  <SEO title="Homepage" keywords={[`gatsby`, `application`, `react`]} />
-		  <Link to="/products">Go to the products - NOT WORKING</Link>
-          <h1>Pages</h1>
-          {data.allWordpressPage.edges.map(({ node }) => (
-            <div key={node.slug}>
-              <Link to={node.slug} css={{ textDecoration: `none` }}>
-                <h3>{node.title}</h3>
-              </Link>
-              <div dangerouslySetInnerHTML={{ __html: node.excerpt }} />
-              <span>
-                <FaRegClock
-                  size={14}
-                  css={{ position: `relative`, bottom: 1 }}
-                />
-                {` `}
-                {node.date}
-              </span>
-            </div>
-          ))}
-        </React.Fragment>
-        <hr />
-        <h1>Posts</h1>
-        {data.allWordpressPost.edges.map(({ node }) => (
-          <div key={node.slug}>
-            <Link to={node.slug} css={{ textDecoration: `none` }}>
-              <h3>{node.title}</h3>
-            </Link>
-            <div dangerouslySetInnerHTML={{ __html: node.excerpt }} />
-          </div>
-        ))}
-      </Layout>
-    )
-  }
+import bgVidMp4 from '../videos/ForgeJerseyReveal.mp4'
+import bgVidOgv from '../videos/ForgeJerseyReveal.ogv'
+import bgVidWebm from '../videos/ForgeJerseyReveal.webm'
+
+class Home extends Component {
+	render() {
+
+		return (
+			<Layout>
+				<React.Fragment>
+					<SEO title="Homepage" keywords={[`gatsby`, `application`, `react`]} />
+
+					<video id="bg-video" className="home-video" muted loop>
+						<source src={bgVidMp4} type="video/mp4"/>
+						<source src={bgVidOgv} type="video/ogg"/>
+						<source src={bgVidWebm} type="video/webm"/>
+					</video>
+
+				</React.Fragment>
+			</Layout>
+		)
+	}
+
+	componentDidMount() {
+    	var video = document.getElementById("bg-video");
+
+		/**
+		 * Check if video can play, and play it
+		 */
+		video.addEventListener( "canplay", function() {
+			video.play();
+		});
+	}
 }
 
 export default Home
