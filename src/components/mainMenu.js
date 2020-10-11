@@ -1,9 +1,11 @@
-import React, { Component } from 'react'
-import {
-	Collapse, Nav, NavItem, NavLink,
-	Navbar, NavbarToggler, NavbarBrand,
-	UncontrolledDropdown, DropdownToggle,
-	DropdownMenu, DropdownItem } from 'reactstrap'
+import React from 'react'
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
+import ListItemText from '@material-ui/core/ListItemText';
+import Collapse from '@material-ui/core/Collapse';
+import ExpandLess from '@material-ui/icons/ExpandLess';
+import ExpandMore from '@material-ui/icons/ExpandMore';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 import { Link, graphql, StaticQuery } from "gatsby"
@@ -11,6 +13,10 @@ import { Link, graphql, StaticQuery } from "gatsby"
 import stylesNav from "../styles/components/navigation.module.scss"
 
 import logo from '../images/pghforgerugby.png'
+
+function ListItemLink(props) {
+	return <ListItem button component="a" {...props} />;
+}
 
 export default class MainMenu extends React.Component {
 
@@ -61,77 +67,93 @@ export default class MainMenu extends React.Component {
 		  `}
 		  render={data => {
 			const MenuItems = data.allWordpressMenusMenusItems.edges[0].node.items;
+
+			const [selectedIndex, setSelectedIndex] = React.useState("")
+
+			const handleClick = index => {
+				if (selectedIndex === index) {
+					setSelectedIndex("")
+				} else {
+					setSelectedIndex(index)
+				}
+			}
+
 			return (
-				<Navbar dark expand="lg" className={stylesNav.mainNav}>
+				<div className={stylesNav.mainNav}>
 					<div className={stylesNav.mainNavBranding}>
-						<NavbarToggler onClick={this.toggleNavbar} />
-						<NavbarBrand href="/" className={stylesNav.navbarBrandLink}>
+						<Link to="/" className={stylesNav.navbarBrandLink}>
 							<img src={logo} className={stylesNav.logo} alt="Pittsburgh Forge Rugby Club"/>
-							<span className={`${stylesNav.headerTitle} ${'d-none d-md-inline'}`} itemType="http://schema.org/Organization">
+							<span className={stylesNav.headerTitle} itemType="http://schema.org/Organization">
 								Pittsburgh Forge <span className="d-none d-md-inline d-lg-none d-xl-inline">Rugby Club</span>
 							</span>
-						</NavbarBrand>
+						</Link>
 						<Link to="/contact" className={`${stylesNav.mobileMenuContact} ${'d-lg-none'}`}>
 							<FontAwesomeIcon icon={"envelope"}/>
 						</Link>
 					</div>
-					<Collapse isOpen={!this.state.collapsed} navbar>
-						<Nav navbar>
-						{MenuItems.map(item => {
-							let fullURL = item.url,
-								slug = fullURL.split("pghrugby.com")[1];
+					<List
+						component="nav"
+						className={stylesNav.siteNav}
+					>
+						{MenuItems.map((item, index) => {
+							let fullURL = item.url;
+							let	slug = fullURL.split("pghrugby.com")[1];
 
 							return (
 								(item.child_items ?
 									<React.Fragment>
-										<UncontrolledDropdown nav inNavbar>
-											<DropdownToggle nav caret
-												className={stylesNav.menuLink}
-												key={item.wordpress_id}
-											>
-											</DropdownToggle>
-											<NavLink
-												href={`${slug}`}
-												className="pageLink"
-												key={item.wordpress_id}
-											>
-												{item.title}
-											</NavLink>
-											<DropdownMenu right>
+										<ListItem button 
+											onClick={() => {
+												handleClick(index)
+											}}
+											key={item.wordpress_id}
+											className={stylesNav.navLink}
+										>
+											<ListItemText
+											  className={stylesNav.navLinkText}
+											  primary={item.title}
+											/>
+											{index === selectedIndex ? <ExpandLess /> : <ExpandMore />}
+										</ListItem>
+										<Collapse in={index === selectedIndex} timeout="auto" unmountOnExit>
+											<List component="div" disablePadding>
 												{item.child_items && item.child_items.map((subitem) => {
-													let fullSubURL = subitem.url,
-													subSlug = fullSubURL.split("pghrugby.com")[1];
+													let fullSubURL = subitem.url;
+													let subSlug = fullSubURL.split("pghrugby.com")[1];
 
 													return (
-														<DropdownItem key={item.wordpress_id}>
-															<NavLink
-																href={`${subSlug}`}
-																key={item.wordpress_id}
-															>
-																{subitem.title}
-															</NavLink>
-														</DropdownItem>
+														<ListItemLink
+														  href={`${subSlug}`}
+														  className={`${stylesNav.navLink} ${stylesNav.subNavLink}`}
+														  key={item.wordpress_id}>
+															<ListItemText
+															  className={`${stylesNav.navLinkText} ${stylesNav.sucNavLinkText}`}
+															  primary={subitem.title}
+															/>
+														</ListItemLink>
 													)
 												})}
-											</DropdownMenu>
-										</UncontrolledDropdown>
+											</List>
+										</Collapse>
 									</React.Fragment>
 								:
-									(<NavItem>
-										<NavLink
-											href={`${slug}`}
-											className={stylesNav.menuLink}
-											key={item.wordpress_id}
+									<React.Fragment>
+										<ListItemLink 
+										  href={`${slug}`}
+										  key={item.wordpress_id}
+										  className={stylesNav.navLink}
 										>
-											{item.title}
-										</NavLink>
-									</NavItem>)
+											<ListItemText
+											  className={stylesNav.navLinkText}
+											  primary={item.title}
+											/>
+										</ListItemLink>
+									</React.Fragment>
 								)
 							)
 						})}
-						</Nav>
-					</Collapse>
-				</Navbar>
+					</List>
+				</div>
 			);
 		  }}
 		/>

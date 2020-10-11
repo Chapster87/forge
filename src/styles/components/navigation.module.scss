@@ -1,41 +1,13 @@
 @import '../variables';
 @import "../utilities/functions";
 
-.mainNav {
-	align-items: center;
-	justify-content: center;
-	padding: 0 !important;
-
-	@include media-breakpoint-up(lg) {
-		background-color: theme-color("primary");
-		background-image: url("../../images/low-contrast-linen.png");
-		border-bottom: 0.125rem solid theme-color("secondary");
-		padding: 0.5rem 1rem;
-	}
-}
-
 .mainNavBranding {
-	background-color: theme-color("primary");
-	background-image: url("../../images/low-contrast-linen.png");
-	border-bottom: 0.125rem solid theme-color("secondary");
-	padding: 0.5rem 1rem;
 	width: 100%;
 	display: flex;
 	flex-wrap: wrap;
 	align-items: center;
 	justify-content: space-between;
-
-	@include media-breakpoint-up(lg) {
-		width: auto;
-		background-color: transparent;
-		background-image: none;
-		border: 0;
-	}
-}
-
-.navbarBrandLink {
-	height: 100%;
-	padding: 0;
+	padding: 0.5rem 1rem;
 }
 
 .mobileMenuContact {
@@ -52,107 +24,26 @@
 	}
 }
 
-ul.menuMain {
-	width: 100%;
-	position: absolute;
-	left: 0;
-	bottom: 4.5rem;
-	background-color: $black;
-	z-index: 1;
-
-	@include media-breakpoint-up(lg) {
-		display: flex;
-		justify-content: flex-end;
-		align-items: center;
-		background-color: transparent;
-		width: auto;
-		height: 100%;
-		position: static;
-	}
-
-	.menuItem {
-		float: left;
-		width: 100%;
-		display: flex;
-		align-items: stretch;
-		flex-wrap: wrap;
-		padding-left: 2.5rem;
-		border-bottom: 1px solid $light-black;
-		height: 100%;
-
-		@include media-breakpoint-up(lg) {
-			float: none;
-			width: auto;
-			padding: 0;
-			border: 0;
-			align-items: center;
-		}
-
-		.menuLink {
-			color: $white;
-			font-weight: 700;
-			border-bottom: 0.25rem solid transparent;
-			transition: border ease 0.5s;
-			flex-grow: 1;
-
-			@include media-breakpoint-up(lg) {
-				color: $black;
-				height: 100%;
-				display: flex;
-				align-items: center;
-
-				&:hover {
-					color: inherit;
-					border-bottom: 0.25rem solid theme-color("secondary");
-				}
-			}
-		}
-
-		@include media-breakpoint-up(lg) {
-			&.current_page_item>a {
-				color: inherit;
-				border-bottom: 0.25rem solid theme-color("secondary");
-			}
-		}
-
-		.sub-menu {
-			flex-basis: 100%;
-			background-color: $light-black;
-			margin: 0;
-			border: 0;
-
-			li {
-				a {
-					padding-left: 2.5rem;
-
-					@include media-breakpoint-up(lg) {
-						padding: 0.75rem;
-					}
-
-					&:hover {
-						color: theme-color("primary");
-					}
-				}
-			}
-		}
-	}
-}
-
 .logo {
-	max-height: rem(56);
 	margin-bottom: 0;
 }
 
 .headerTitle {
+	color: theme-color("primary");
 	font-family: $lemonmilk-regular;
 	font-size: 1.375em;
-	margin: 0 0 0 0.875rem;
 	letter-spacing: 0.063rem;
-	color: $black;
-	display: none;
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+	margin-top: rem(10);
+}
 
-	@include media-breakpoint-up(md) {
-		font-size: 1.938rem;
+.navLink {
+	.navLinkText > span{
+		font-size: rem(18);
+		font-weight: 600;
+		letter-spacing: 1px;
+		text-transform: uppercase;
 	}
-
 }
