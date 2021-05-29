@@ -1,0 +1,36 @@
+{
+  "name": "pittsburgh-forge-rugby",
+  "version": "2.0",
+  "private": true,
+  "description": "Official Website of the Pittsburgh Forge",
+  "main": "index.js",
+  "workspaces": [
+    "site",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "yarn workspace site dev",
+    "dev:clean": "yarn workspace site dev:clean",
+    "build": "yarn workspace site build",
+    "build:clean": "yarn workspace site build:clean",
+    "serve": "yarn workspace site serve",
+    "clean": "yarn workspace site clean"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/imranhsayed/gatsby-woocommerce-themes.git"
+  },
+  "keywords": [
+    "gatsby",
+    "gatsby-plugin",
+    "gatsby-theme",
+    "gatsby-woocommerce-theme",
+    "woocommerce",
+    "wordpress",
+    "react",
+    "javascript"
+  ],
+  "author": "Andy Chapman",
+  "homepage": "https://pghrugby.com",
+  "dependencies": {}
+}
