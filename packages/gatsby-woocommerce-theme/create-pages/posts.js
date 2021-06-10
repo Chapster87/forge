@@ -3,8 +3,8 @@ const { slash } = require( `gatsby-core-utils` );
 const customTemplatesUris = [ '/'  ];
 const customTemplateSlugs = [ 'checkout', 'cart', 'my-account', 'products' ];
 const singlePostTemplate = require.resolve(`../src/templates/single-post/index.js`);
-const { ImageFragment } = require('./fragements/image/index');
-const { SeoFragment } = require('./fragements/seo/index.js');
+const { ImageFragment } = require('./fragments/image/index');
+const { SeoFragment } = require('./fragments/seo/index.js');
 
 // Get all the posts.
 const GET_POSTS = `

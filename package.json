@@ -1,6 +1,6 @@
 {
   "name": "pittsburgh-forge-rugby",
-  "version": "2.0",
+  "version": "2.0.0",
   "private": true,
   "description": "Official Website of the Pittsburgh Forge",
   "main": "index.js",

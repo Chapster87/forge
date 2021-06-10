@@ -1,8 +1,8 @@
 const { slash }         = require( `gatsby-core-utils` );
 const frontPageTemplate = require.resolve( `../src/templates/front-page/index.js` );
-const singleProductPageTemplate = require.resolve( `../src/templates/product/index.js` );
-const { ProductsFragment } = require('./fragements/products/index.js');
-const { SeoFragment } = require('./fragements/seo/index.js');
+const productPageTemplate = require.resolve( `../src/templates/product/index.js` );
+const { ProductsFragment } = require('./fragments/products/index.js');
+const { SeoFragment } = require('./fragments/seo/index.js');
 
 // Get all the front page data.
 const GET_FRONT_PAGE = `
@@ -103,7 +103,7 @@ module.exports = async ( { actions, graphql } ) => {
 		allProducts.length && allProducts.map( product => {
 			createPage( {
 				path: product.link,
-				component: slash( singleProductPageTemplate ),
+				component: slash( productPageTemplate ),
 				context: { product },
 			} );
 		} );

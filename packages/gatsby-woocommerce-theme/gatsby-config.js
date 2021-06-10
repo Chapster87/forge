@@ -40,7 +40,7 @@ module.exports = ({ wordPressUrl, gatsbySiteUrl, googleTagManagerId, fbAppId }) 
         },
         debug: {
           graphql: {
-            showQueryOnError: false,
+            showQueryOnError: true,
             showQueryVarsOnError: true,
             copyQueryOnError: true,
             panicOnError: true,

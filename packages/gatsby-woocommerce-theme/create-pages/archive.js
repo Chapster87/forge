@@ -1,7 +1,7 @@
 const { slash }         = require( `gatsby-core-utils` );
 const archivePageTemplate = require.resolve( `../src/templates/archive/index.js` );
-const { ProductsFragment } = require('./fragements/products/index.js');
-const { SeoFragment } = require('./fragements/seo/index.js');
+const { ProductsFragment } = require('./fragments/products/index.js');
+const { SeoFragment } = require('./fragments/seo/index.js');
 
 // Get all the front page data.
 const GET_ARCHIVES = `

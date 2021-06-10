@@ -4,8 +4,8 @@ const customTemplatesUris = [ '/'  ];
 const customTemplateSlugs = [ 'checkout', 'cart', 'my-account', 'products' ];
 const singlePageTemplate = require.resolve(`../src/templates/page/index.js`);
 const myAccountPageTemplate = require.resolve(`../src/templates/my-account/index.js`);
-const { ImageFragment } = require('./fragements/image/index');
-const { SeoFragment } = require('./fragements/seo/index.js');
+const { ImageFragment } = require('./fragments/image/index');
+const { SeoFragment } = require('./fragments/seo/index.js');
 
 // Get all the pages.
 const GET_PAGES = `

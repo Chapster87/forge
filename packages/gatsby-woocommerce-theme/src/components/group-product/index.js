@@ -9,7 +9,7 @@ import { sanitize } from "../../utils/functions";
 
 const productImagePlaceholder = "https://via.placeholder.com/434";
 
-const SingleProduct = ( props ) => {
+const GroupProduct = ( props ) => {
 	const { product } = props;
 
 	const hasImagesSizes =
@@ -50,7 +50,7 @@ const SingleProduct = ( props ) => {
 
 	return (
 		!isEmpty( product ) ? (
-			<div className="single-product-page container py-5">
+			<div className="group-product-page container py-5">
 				<div className="row">
 					<div className="col-lg-5 col-md-6 mb-5 product-image-wrap">
 						<div className="product-image">
@@ -58,12 +58,13 @@ const SingleProduct = ( props ) => {
 						</div>
 					</div>
 					<div className="col-lg-7 col-md-6 mb-5">
-						<div className="single-product-desc">
+						<div className="group-product-desc">
+							<h1>Group Product</h1>
 							<h3>{ product.name ? product.name : "" }</h3>
 							{ !isEmpty( product.description ) ? (
 								<p dangerouslySetInnerHTML={ { __html: sanitize( product.description ) } }/>
 							) : null }
-							<div className="single-product-add-to-cart">
+							<div className="group-product-add-to-cart">
 								<h6 className="card-subtitle mb-3">{ product.price }</h6>
 								<AddToCartButton product={ product }/>
 							</div>
@@ -77,4 +78,4 @@ const SingleProduct = ( props ) => {
 	);
 };
 
-export default SingleProduct;
+export default GroupProduct;
